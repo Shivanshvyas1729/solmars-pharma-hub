@@ -50,10 +50,10 @@ function Home() {
               Solmars Pharma develops affordable, quality medicines and pharmaceutical formulations — built on rigorous science, ethical practice and a commitment to global wellbeing.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link to="/products" className="inline-flex items-center gap-2 rounded-md bg-white px-5 py-3 text-sm font-semibold text-navy shadow-elevated transition hover:bg-white/90">
+              <Link to="/products" className="btn-premium inline-flex items-center gap-2 rounded-md bg-white px-5 py-3 text-sm font-semibold text-navy shadow-elevated">
                 Explore Products <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link to="/contact" className="inline-flex items-center gap-2 rounded-md border border-white/25 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
+              <Link to="/contact" className="btn-premium inline-flex items-center gap-2 rounded-md border border-white/25 bg-white/5 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10">
                 Partner with us
               </Link>
             </div>
