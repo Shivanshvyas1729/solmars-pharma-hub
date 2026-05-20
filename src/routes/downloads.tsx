@@ -35,7 +35,7 @@ function DownloadsPage() {
       <section className="container-pharma py-20">
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {docs.map((d) => (
-            <article key={d.title} className="flex flex-col rounded-xl border border-border bg-card p-7 shadow-card transition hover:-translate-y-0.5 hover:shadow-elevated">
+            <article key={d.title} className="flex flex-col rounded-xl border border-border bg-card p-7 shadow-card card-lift">
               <span className="grid h-11 w-11 place-items-center rounded-lg bg-primary/10 text-primary">
                 <FileText className="h-5 w-5" />
               </span>

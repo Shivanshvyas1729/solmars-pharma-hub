@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ShieldCheck, FlaskConical, Truck, Award, HeartPulse, Microscope, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Reveal } from "@/hooks/use-reveal";
 import heroImg from "@/assets/hero-lab.jpg";
 import researchImg from "@/assets/research.jpg";
 import productsImg from "@/assets/products.jpg";
@@ -49,10 +50,10 @@ function Home() {
               Solmars Pharma develops affordable, quality medicines and pharmaceutical formulations — built on rigorous science, ethical practice and a commitment to global wellbeing.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link to="/products" className="inline-flex items-center gap-2 rounded-md bg-white px-5 py-3 text-sm font-semibold text-navy shadow-elevated transition hover:bg-white/90">
+              <Link to="/products" className="btn-premium inline-flex items-center gap-2 rounded-md bg-white px-5 py-3 text-sm font-semibold text-navy shadow-elevated">
                 Explore Products <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link to="/contact" className="inline-flex items-center gap-2 rounded-md border border-white/25 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
+              <Link to="/contact" className="btn-premium inline-flex items-center gap-2 rounded-md border border-white/25 bg-white/5 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10">
                 Partner with us
               </Link>
             </div>
@@ -67,12 +68,12 @@ function Home() {
 
       {/* Stats */}
       <section className="border-b border-border bg-background">
-        <div className="container-pharma grid grid-cols-2 gap-8 py-12 md:grid-cols-4">
-          {stats.map((s) => (
-            <div key={s.label} className="text-center md:text-left">
+        <div className="container-pharma grid grid-cols-2 gap-8 py-14 md:grid-cols-4">
+          {stats.map((s, i) => (
+            <Reveal key={s.label} delay={i * 80} className="text-center md:text-left">
               <div className="font-display text-3xl font-bold text-navy md:text-4xl">{s.value}</div>
               <div className="mt-1 text-sm text-muted-foreground">{s.label}</div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </section>
@@ -112,18 +113,20 @@ function Home() {
             <p className="mt-4 text-muted-foreground">A diversified portfolio engineered to support modern clinical practice.</p>
           </div>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {categories.map((c) => (
-              <div key={c.title} className="group rounded-xl border border-border bg-card p-6 shadow-card transition hover:-translate-y-0.5 hover:shadow-elevated">
-                <span className="grid h-11 w-11 place-items-center rounded-lg bg-primary/10 text-primary transition group-hover:bg-primary group-hover:text-primary-foreground">
-                  <c.icon className="h-5 w-5" />
-                </span>
-                <h3 className="mt-4 text-lg font-semibold">{c.title}</h3>
-                <p className="mt-1.5 text-sm text-muted-foreground">{c.desc}</p>
-              </div>
+            {categories.map((c, i) => (
+              <Reveal key={c.title} delay={i * 60}>
+                <div className="card-lift group h-full rounded-xl border border-border bg-card p-6 shadow-card">
+                  <span className="grid h-11 w-11 place-items-center rounded-lg bg-primary/10 text-primary transition group-hover:bg-primary group-hover:text-primary-foreground">
+                    <c.icon className="h-5 w-5" />
+                  </span>
+                  <h3 className="mt-4 text-lg font-semibold">{c.title}</h3>
+                  <p className="mt-1.5 text-sm text-muted-foreground">{c.desc}</p>
+                </div>
+              </Reveal>
             ))}
           </div>
           <div className="mt-10 text-center">
-            <Link to="/products" className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-card hover:opacity-90">
+            <Link to="/products" className="btn-premium inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-card">
               View all products <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
@@ -169,10 +172,10 @@ function Home() {
             </p>
           </div>
           <div className="flex flex-wrap gap-3 lg:justify-end">
-            <Link to="/quality" className="rounded-md border border-white/25 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10">
+            <Link to="/quality" className="btn-premium rounded-md border border-white/25 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10">
               Our quality systems
             </Link>
-            <Link to="/contact" className="rounded-md bg-white px-5 py-3 text-sm font-semibold text-navy hover:bg-white/90">
+            <Link to="/contact" className="btn-premium rounded-md bg-white px-5 py-3 text-sm font-semibold text-navy hover:bg-white/90">
               Talk to our team
             </Link>
           </div>
