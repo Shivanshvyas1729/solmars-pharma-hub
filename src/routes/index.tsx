@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ShieldCheck, FlaskConical, Truck, Award, HeartPulse, Microscope, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Reveal } from "@/hooks/use-reveal";
 import heroImg from "@/assets/hero-lab.jpg";
 import researchImg from "@/assets/research.jpg";
 import productsImg from "@/assets/products.jpg";
