@@ -172,10 +172,10 @@ function Home() {
             </p>
           </div>
           <div className="flex flex-wrap gap-3 lg:justify-end">
-            <Link to="/quality" className="rounded-md border border-white/25 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10">
+            <Link to="/quality" className="btn-premium rounded-md border border-white/25 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10">
               Our quality systems
             </Link>
-            <Link to="/contact" className="rounded-md bg-white px-5 py-3 text-sm font-semibold text-navy hover:bg-white/90">
+            <Link to="/contact" className="btn-premium rounded-md bg-white px-5 py-3 text-sm font-semibold text-navy hover:bg-white/90">
               Talk to our team
             </Link>
           </div>
