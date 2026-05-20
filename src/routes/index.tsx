@@ -68,12 +68,12 @@ function Home() {
 
       {/* Stats */}
       <section className="border-b border-border bg-background">
-        <div className="container-pharma grid grid-cols-2 gap-8 py-12 md:grid-cols-4">
-          {stats.map((s) => (
-            <div key={s.label} className="text-center md:text-left">
+        <div className="container-pharma grid grid-cols-2 gap-8 py-14 md:grid-cols-4">
+          {stats.map((s, i) => (
+            <Reveal key={s.label} delay={i * 80} className="text-center md:text-left">
               <div className="font-display text-3xl font-bold text-navy md:text-4xl">{s.value}</div>
               <div className="mt-1 text-sm text-muted-foreground">{s.label}</div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </section>
