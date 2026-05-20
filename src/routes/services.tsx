@@ -35,7 +35,7 @@ function ServicesPage() {
       <section className="container-pharma py-20">
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((s) => (
-            <article key={s.title} className="rounded-xl border border-border bg-card p-7 shadow-card transition hover:-translate-y-0.5 hover:shadow-elevated">
+            <article key={s.title} className="rounded-xl border border-border bg-card p-7 shadow-card card-lift">
               <span className="grid h-12 w-12 place-items-center rounded-lg bg-primary/10 text-primary">
                 <s.icon className="h-6 w-6" />
               </span>
