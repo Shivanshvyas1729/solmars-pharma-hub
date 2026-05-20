@@ -113,18 +113,20 @@ function Home() {
             <p className="mt-4 text-muted-foreground">A diversified portfolio engineered to support modern clinical practice.</p>
           </div>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {categories.map((c) => (
-              <div key={c.title} className="group rounded-xl border border-border bg-card p-6 shadow-card transition hover:-translate-y-0.5 hover:shadow-elevated">
-                <span className="grid h-11 w-11 place-items-center rounded-lg bg-primary/10 text-primary transition group-hover:bg-primary group-hover:text-primary-foreground">
-                  <c.icon className="h-5 w-5" />
-                </span>
-                <h3 className="mt-4 text-lg font-semibold">{c.title}</h3>
-                <p className="mt-1.5 text-sm text-muted-foreground">{c.desc}</p>
-              </div>
+            {categories.map((c, i) => (
+              <Reveal key={c.title} delay={i * 60}>
+                <div className="card-lift group h-full rounded-xl border border-border bg-card p-6 shadow-card">
+                  <span className="grid h-11 w-11 place-items-center rounded-lg bg-primary/10 text-primary transition group-hover:bg-primary group-hover:text-primary-foreground">
+                    <c.icon className="h-5 w-5" />
+                  </span>
+                  <h3 className="mt-4 text-lg font-semibold">{c.title}</h3>
+                  <p className="mt-1.5 text-sm text-muted-foreground">{c.desc}</p>
+                </div>
+              </Reveal>
             ))}
           </div>
           <div className="mt-10 text-center">
-            <Link to="/products" className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-card hover:opacity-90">
+            <Link to="/products" className="btn-premium inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-card">
               View all products <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
