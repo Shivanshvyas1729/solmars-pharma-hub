@@ -16,7 +16,7 @@ import { getProductBySlug, getRelatedProducts, type Product } from "@/data/produ
 import { ProductCard } from "@/components/ProductCard";
 
 export const Route = createFileRoute("/products/$slug")({
-  loader: ({ params }) => {
+  loader: ({ params }): { product: Product; related: Product[] } => {
     const product = getProductBySlug(params.slug);
     if (!product) throw notFound();
     const related = getRelatedProducts(params.slug);
