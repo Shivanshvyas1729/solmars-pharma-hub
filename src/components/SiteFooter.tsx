@@ -40,9 +40,9 @@ export function SiteFooter() {
         <div>
           <h4 className="text-sm font-semibold uppercase tracking-wider text-white">Contact</h4>
           <ul className="mt-4 space-y-3 text-sm text-white/75">
-            <li className="flex items-start gap-2.5"><MapPin className="mt-0.5 h-4 w-4 shrink-0" /> Ahmedabad, Gujarat, India</li>
-            <li className="flex items-center gap-2.5"><Mail className="h-4 w-4" /> info@solmarspharma.com</li>
-            <li className="flex items-center gap-2.5"><Phone className="h-4 w-4" /> +91 00000 00000</li>
+            <li className="flex items-start gap-2.5"><MapPin className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" /><span>Ahmedabad, Gujarat, India</span></li>
+            <li className="flex items-center gap-2.5"><Mail className="h-4 w-4" aria-hidden="true" /><a href="mailto:info@solmarspharma.com" className="hover:text-white">info@solmarspharma.com</a></li>
+            <li className="flex items-center gap-2.5"><Phone className="h-4 w-4" aria-hidden="true" /><a href="tel:+910000000000" className="hover:text-white">+91 00000 00000</a></li>
           </ul>
         </div>
       </div>
