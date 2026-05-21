@@ -57,7 +57,7 @@ const tabs = ["Overview", "Composition", "Usage", "Safety"] as const;
 type Tab = (typeof tabs)[number];
 
 function ProductDetail() {
-  const { product, related } = Route.useLoaderData();
+  const { product, related } = Route.useLoaderData() as { product: Product; related: Product[] };
   const [tab, setTab] = useState<Tab>("Overview");
 
   return (
