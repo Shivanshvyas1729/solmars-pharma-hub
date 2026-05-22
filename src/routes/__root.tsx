@@ -77,6 +77,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "Solmars Pharma — Trusted Pharmaceutical Solutions for Humanity" },
       { name: "description", content: "Solmars Pharma is an Ahmedabad-based pharmaceutical company delivering quality generic medicines, formulations and healthcare products for doctors, distributors and hospitals." },
       { name: "author", content: "Solmars Pharma" },
+      { property: "og:site_name", content: "Solmars Pharma" },
       { property: "og:title", content: "Solmars Pharma — For Humanity" },
       { property: "og:description", content: "Quality medicines for a healthier tomorrow." },
       { property: "og:type", content: "website" },
@@ -87,6 +88,24 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "Solmars Pharma",
+          description:
+            "Ahmedabad-based pharmaceutical company delivering quality generic medicines, formulations and healthcare products.",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Ahmedabad",
+            addressRegion: "Gujarat",
+            addressCountry: "IN",
+          },
+        }),
+      },
     ],
   }),
   shellComponent: RootShell,
