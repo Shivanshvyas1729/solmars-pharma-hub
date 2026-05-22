@@ -10,7 +10,9 @@ export const Route = createFileRoute("/contact")({
       { name: "description", content: "Reach Solmars Pharma for business, distributor and partnership inquiries. Headquartered in Ahmedabad, Gujarat, India." },
       { property: "og:title", content: "Contact Solmars Pharma" },
       { property: "og:description", content: "Get in touch with our team for products, partnerships and careers." },
+      { property: "og:url", content: "/contact" },
     ],
+    links: [{ rel: "canonical", href: "/contact" }],
   }),
   component: ContactPage,
 });
