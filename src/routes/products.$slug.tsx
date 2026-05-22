@@ -22,17 +22,45 @@ export const Route = createFileRoute("/products/$slug")({
     const related = getRelatedProducts(params.slug);
     return { product, related };
   },
-  head: ({ loaderData }) => {
+  head: ({ loaderData, params }) => {
     const p = loaderData?.product;
+    if (!p) return { meta: [{ title: "Product — Solmars Pharma" }] };
+    const url = `/products/${params.slug}`;
     return {
-      meta: p
-        ? [
-            { title: `${p.name} — Solmars Pharma` },
-            { name: "description", content: p.description },
-            { property: "og:title", content: `${p.name} — Solmars Pharma` },
-            { property: "og:description", content: p.description },
-          ]
-        : [{ title: "Product — Solmars Pharma" }],
+      meta: [
+        { title: `${p.name} — Solmars Pharma` },
+        { name: "description", content: p.description },
+        { property: "og:title", content: `${p.name} — Solmars Pharma` },
+        { property: "og:description", content: p.description },
+        { property: "og:type", content: "product" },
+        { property: "og:url", content: url },
+      ],
+      links: [{ rel: "canonical", href: url }],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            name: p.name,
+            description: p.description,
+            category: p.category,
+            brand: { "@type": "Brand", name: "Solmars Pharma" },
+          }),
+        },
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: "/" },
+              { "@type": "ListItem", position: 2, name: "Products", item: "/products" },
+              { "@type": "ListItem", position: 3, name: p.name, item: url },
+            ],
+          }),
+        },
+      ],
     };
   },
   notFoundComponent: () => (
