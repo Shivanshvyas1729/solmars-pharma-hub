@@ -12,7 +12,9 @@ export const Route = createFileRoute("/products")({
       { name: "description", content: "Browse Solmars Pharma's pharmaceutical product catalog across antibiotics, pain management, orthopedic care, neurology and nutritional segments." },
       { property: "og:title", content: "Solmars Pharma Product Catalog" },
       { property: "og:description", content: "A trusted portfolio of quality pharmaceutical formulations for modern clinical practice." },
+      { property: "og:url", content: "/products" },
     ],
+    links: [{ rel: "canonical", href: "/products" }],
   }),
   component: ProductsPage,
 });

@@ -9,7 +9,9 @@ export const Route = createFileRoute("/careers")({
       { name: "description", content: "Join Solmars Pharma. Explore roles, our people-first culture and opportunities to make a difference in pharmaceutical healthcare." },
       { property: "og:title", content: "Careers at Solmars Pharma" },
       { property: "og:description", content: "Grow your career with a purpose-driven pharma company." },
+      { property: "og:url", content: "/careers" },
     ],
+    links: [{ rel: "canonical", href: "/careers" }],
   }),
   component: CareersPage,
 });

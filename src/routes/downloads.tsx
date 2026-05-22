@@ -9,7 +9,9 @@ export const Route = createFileRoute("/downloads")({
       { name: "description", content: "Download Solmars Pharma corporate brochures, product catalogs and informational PDFs for healthcare professionals and partners." },
       { property: "og:title", content: "Solmars Pharma Downloads" },
       { property: "og:description", content: "Corporate brochures, catalogs and product documents." },
+      { property: "og:url", content: "/downloads" },
     ],
+    links: [{ rel: "canonical", href: "/downloads" }],
   }),
   component: DownloadsPage,
 });

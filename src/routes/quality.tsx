@@ -10,7 +10,9 @@ export const Route = createFileRoute("/quality")({
       { name: "description", content: "Solmars Pharma's quality assurance, manufacturing standards, compliance and research philosophy across every formulation." },
       { property: "og:title", content: "Quality & Research at Solmars Pharma" },
       { property: "og:description", content: "Rigorous quality systems and scientific discipline at every stage." },
+      { property: "og:url", content: "/quality" },
     ],
+    links: [{ rel: "canonical", href: "/quality" }],
   }),
   component: QualityPage,
 });

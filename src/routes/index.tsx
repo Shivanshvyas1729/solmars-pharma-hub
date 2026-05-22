@@ -12,7 +12,9 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Quality generic medicines, formulations and healthcare products from Ahmedabad, India. Built on trust, science and care." },
       { property: "og:title", content: "Solmars Pharma — For Humanity" },
       { property: "og:description", content: "Delivering trusted healthcare solutions and quality medicines for a healthier tomorrow." },
+      { property: "og:url", content: "/" },
     ],
+    links: [{ rel: "canonical", href: "/" }],
   }),
   component: Home,
 });

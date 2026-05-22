@@ -10,7 +10,9 @@ export const Route = createFileRoute("/about")({
       { name: "description", content: "Learn about Solmars Pharma — an Ahmedabad-based pharmaceutical company committed to affordable, high-quality medicines for humanity." },
       { property: "og:title", content: "About Solmars Pharma" },
       { property: "og:description", content: "Affordable, high-quality medicines built on science, ethics and care." },
+      { property: "og:url", content: "/about" },
     ],
+    links: [{ rel: "canonical", href: "/about" }],
   }),
   component: AboutPage,
 });
