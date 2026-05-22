@@ -9,7 +9,9 @@ export const Route = createFileRoute("/services")({
       { name: "description", content: "Solmars Pharma offers pharma marketing, distribution support, healthcare partnerships, third-party manufacturing and medical supply chain services." },
       { property: "og:title", content: "Solmars Pharma Services" },
       { property: "og:description", content: "End-to-end pharma services for distributors, hospitals and B2B partners." },
+      { property: "og:url", content: "/services" },
     ],
+    links: [{ rel: "canonical", href: "/services" }],
   }),
   component: ServicesPage,
 });
