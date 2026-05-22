@@ -78,7 +78,7 @@ export function SiteHeader() {
       </div>
 
       {open && (
-        <div className="border-t border-border bg-background lg:hidden">
+        <div id="mobile-nav" className="border-t border-border bg-background lg:hidden">
           <div className="container-pharma flex flex-col py-3">
             {nav.map((n) => (
               <Link
