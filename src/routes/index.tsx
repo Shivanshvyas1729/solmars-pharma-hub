@@ -65,7 +65,7 @@ function Home() {
           </div>
           <div className="relative">
             <div className="overflow-hidden rounded-xl shadow-elevated ring-1 ring-white/10">
-              <img src={heroImg} alt="Solmars Pharma manufacturing laboratory" width={1920} height={1080} className="h-auto w-full" />
+              <img src={heroImg} alt="Solmars Pharma manufacturing laboratory" width={1920} height={1080} fetchPriority="high" decoding="async" className="h-auto w-full" />
             </div>
           </div>
         </div>
