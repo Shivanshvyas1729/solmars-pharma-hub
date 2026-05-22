@@ -66,11 +66,14 @@ export function SiteHeader() {
         </Link>
 
         <button
-          aria-label="Toggle menu"
+          type="button"
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          aria-controls="mobile-nav"
           className="lg:hidden rounded-md p-2 text-navy hover:bg-secondary"
           onClick={() => setOpen(!open)}
         >
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          {open ? <X className="h-5 w-5" aria-hidden="true" /> : <Menu className="h-5 w-5" aria-hidden="true" />}
         </button>
       </div>
 
