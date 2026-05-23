@@ -11,6 +11,11 @@ const base = isGitHubPages ? `/${githubRepoName}/` : "/";
 
 export default defineConfig({
   base,
+  build: {
+    rollupOptions: {
+      external: ["yaml", "fs-extra"],
+    },
+  },
   plugins: [
     tanstackStart({
       server: { entry: "server" },
