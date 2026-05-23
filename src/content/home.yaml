@@ -1,0 +1,84 @@
+meta:
+  title: "Solmars Pharma — Trusted Healthcare Solutions for Humanity"
+  description: "Quality generic medicines, formulations and healthcare products from Ahmedabad, India. Built on trust, science and care."
+  ogTitle: "Solmars Pharma — For Humanity"
+  ogDescription: "Delivering trusted healthcare solutions and quality medicines for a healthier tomorrow."
+  canonical: "/"
+  preloadImage: "hero-lab"
+
+sections:
+  - type: hero
+    eyebrow: "For Humanity"
+    title: "Delivering Trusted Healthcare Solutions"
+    description: "Solmars Pharma develops affordable, quality medicines and pharmaceutical formulations — built on rigorous science, ethical practice and a commitment to global wellbeing."
+    image: "hero-lab"
+    imageAlt: "Solmars Pharma manufacturing laboratory"
+    actions:
+      - label: "Explore Products"
+        to: "/products"
+        variant: "primary"
+      - label: "Partner with us"
+        to: "/contact"
+        variant: "ghost"
+
+  - type: stats
+    items:
+      - { value: "150+", label: "Formulations" }
+      - { value: "20+", label: "Therapeutic Segments" }
+      - { value: "500+", label: "Distribution Partners" }
+      - { value: "1M+", label: "Patients Served" }
+
+  - type: split
+    eyebrow: "About Solmars"
+    title: "A pharmaceutical company built on science and trust"
+    description: "Headquartered in Ahmedabad, Gujarat, Solmars Pharma develops generic medicines, formulations and wellness products that meet rigorous quality standards. We partner with doctors, distributors and hospitals to make dependable healthcare accessible to communities across India and beyond."
+    image: "research"
+    imageAlt: "Quality research at Solmars Pharma"
+    imagePosition: "right"
+    bullets:
+      - "GMP-aligned manufacturing practices"
+      - "Therapeutic breadth across 20+ segments"
+      - "Distributor network spanning India"
+      - "Patient-first formulation philosophy"
+    link:
+      label: "Learn more about us"
+      to: "/about"
+
+  - type: cardGrid
+    background: "muted"
+    eyebrow: "Therapeutic Portfolio"
+    title: "Product categories"
+    description: "A diversified portfolio engineered to support modern clinical practice."
+    columns: 3
+    items:
+      - { icon: "heart-pulse", title: "Antibiotics", description: "Broad and targeted spectrum formulations." }
+      - { icon: "shield-check", title: "Pain Management", description: "Reliable analgesic and anti-inflammatory range." }
+      - { icon: "flask-conical", title: "Nutritional Supplements", description: "Vitamins, minerals and wellness essentials." }
+      - { icon: "microscope", title: "Neurology", description: "Therapies for neurological care and recovery." }
+      - { icon: "award", title: "Orthopedic Care", description: "Bone, joint and musculoskeletal health." }
+      - { icon: "truck", title: "General Healthcare", description: "Everyday OTC and prescription essentials." }
+    cta:
+      label: "View all products"
+      to: "/products"
+      variant: "primary"
+
+  - type: split
+    eyebrow: "Why Solmars Pharma"
+    title: "Healthcare made accessible, without compromise"
+    image: "products"
+    imageAlt: "Pharmaceutical products"
+    imagePosition: "left"
+    features:
+      - { title: "Stringent Quality", description: "Multi-stage QA from raw material to finished product." }
+      - { title: "Affordable Access", description: "Pricing that supports doctors and patients alike." }
+      - { title: "Reliable Supply", description: "Pan-India distribution and partner network." }
+      - { title: "Ethical Practice", description: "Compliance-first culture across every operation." }
+
+  - type: banner
+    background: "navy"
+    eyebrow: "Our Mission"
+    title: "Quality medicines for a healthier tomorrow."
+    description: "We exist to make dependable healthcare available to every community we serve — guided by science, anchored in integrity, and inspired by the people who depend on us every day."
+    actions:
+      - { label: "Our quality systems", to: "/quality", variant: "ghost-light" }
+      - { label: "Talk to our team", to: "/contact", variant: "light" }
