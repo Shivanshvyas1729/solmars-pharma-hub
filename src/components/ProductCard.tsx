@@ -19,14 +19,18 @@ export function ProductCard({ product }: { product: Product }) {
       {/* Image placeholder */}
       <div className="relative aspect-[4/3] overflow-hidden bg-gradient-soft">
         <div className="absolute inset-0 grid place-items-center">
-          <div className="flex flex-col items-center gap-3">
-            <span className="grid h-14 w-14 place-items-center rounded-xl bg-primary/10 text-primary ring-1 ring-primary/15">
-              <Pill className="h-7 w-7" />
-            </span>
-            <span className="font-display text-lg font-bold tracking-wide text-navy">
-              {initials}
-            </span>
-          </div>
+          {product.image ? (
+            <img src={product.image} alt={product.name} className="h-full w-full object-cover object-center" />
+          ) : (
+            <div className="flex flex-col items-center gap-3">
+              <span className="grid h-14 w-14 place-items-center rounded-xl bg-primary/10 text-primary ring-1 ring-primary/15">
+                <Pill className="h-7 w-7" />
+              </span>
+              <span className="font-display text-lg font-bold tracking-wide text-navy">
+                {initials}
+              </span>
+            </div>
+          )}
         </div>
         <div className="absolute left-4 top-4">
           <span className="rounded-full bg-white/85 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-primary shadow-card backdrop-blur">

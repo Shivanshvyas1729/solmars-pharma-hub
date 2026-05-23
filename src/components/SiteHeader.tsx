@@ -13,7 +13,7 @@ const nav = [
   { to: "/contact", label: "Contact" },
 ] as const;
 
-export function SiteHeader() {
+export function SiteHeader({ logo }: { logo?: string }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -33,15 +33,25 @@ export function SiteHeader() {
           : "border-transparent bg-background/70 backdrop-blur",
       ].join(" ")}
     >
-      <div className={`container-pharma flex items-center justify-between transition-all duration-300 ${scrolled ? "h-14" : "h-16"}`}>
+      <div className={`container-pharma flex items-center justify-between transition-all duration-300 ${scrolled ? "h-16" : "h-20 md:h-24"}`}>
         <Link to="/" className="flex items-center gap-2.5">
-          <span className="grid h-9 w-9 place-items-center rounded-md bg-gradient-hero text-primary-foreground">
-            <Pill className="h-5 w-5" />
-          </span>
-          <span className="flex flex-col leading-tight">
-            <span className="font-display text-base font-bold text-navy">Solmars Pharma</span>
-            <span className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">For Humanity</span>
-          </span>
+          {logo ? (
+            <img 
+              src={logo} 
+              alt="Solmars Pharma" 
+              className={`w-auto object-contain mix-blend-multiply transition-all duration-300 ${scrolled ? 'h-12' : 'h-16 md:h-20'}`} 
+            />
+          ) : (
+            <span className="grid h-9 w-9 place-items-center rounded-md bg-gradient-hero text-primary-foreground">
+              <Pill className="h-5 w-5" />
+            </span>
+          )}
+          {!logo && (
+            <span className="flex flex-col leading-tight">
+              <span className="font-display text-base font-bold text-navy">Solmars Pharma</span>
+              <span className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">For Humanity</span>
+            </span>
+          )}
         </Link>
 
         <nav className="hidden items-center gap-0.5 lg:flex">

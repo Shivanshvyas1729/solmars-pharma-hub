@@ -6,9 +6,11 @@ import {
   useRouter,
   HeadContent,
   Scripts,
+  ScrollRestoration,
 } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { getMediaConfig } from "@/data/media";
 
 import appCss from "../styles.css?url";
 
@@ -70,6 +72,10 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
+  loader: async () => {
+    const mediaConfig = await getMediaConfig();
+    return { mediaConfig };
+  },
   head: () => ({
     meta: [
       { charSet: "utf-8" },
@@ -122,6 +128,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         {children}
+        <ScrollRestoration />
         <Scripts />
       </body>
     </html>
@@ -130,6 +137,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const { mediaConfig } = Route.useLoaderData();
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -140,7 +148,7 @@ function RootComponent() {
         >
           Skip to main content
         </a>
-        <SiteHeader />
+        <SiteHeader logo={mediaConfig?.logo} />
         <main id="main-content" className="flex-1">
           <Outlet />
         </main>

@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
-import { products } from "@/data/products";
+import { getProducts } from "@/data/products";
 
 // TODO: replace with the project URL once a project name or custom domain is set.
 const BASE_URL = "";
@@ -19,6 +19,7 @@ export const Route = createFileRoute("/sitemap.xml")({
           "/downloads",
           "/contact",
         ];
+        const products = await getProducts();
         const productPaths = products.map((p) => `/products/${p.slug}`);
         const all = [...staticPaths, ...productPaths];
         const urls = all

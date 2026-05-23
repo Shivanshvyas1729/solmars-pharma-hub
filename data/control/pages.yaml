@@ -1,0 +1,190 @@
+pages:
+  home:
+    hero:
+      title: Innovating Healthcare For A Better Tomorrow
+      subtitle: We are committed to delivering top-tier pharmaceutical products.
+      image: /uploads/hero-bg.jpg
+      ctaPrimary:
+        label: View Products
+        url: /products
+      ctaSecondary:
+        label: Contact Us
+        url: /contact
+    features:
+      - title: Quality First
+        content: Our manufacturing process adheres to the highest global standards.
+      - title: Global Reach
+        content: Delivering health solutions across continents.
+      - title: R&D Focus
+        content: Continuously innovating for a healthier future.
+    updates:
+      heading: Latest Updates
+      content: Stay tuned for our latest product releases and health news.
+  about:
+    hero:
+      title: A pharmaceutical company anchored in trust and science
+      subtitle: Headquartered in Ahmedabad, Gujarat, Solmars Pharma is dedicated to building a healthier tomorrow through reliable formulations, ethical practice, and partnerships with healthcare professionals.
+    story:
+      title: Our story
+      content1: Founded with a singular purpose — to make quality medicines accessible
+        to all — Solmars Pharma has grown into a trusted name in pharmaceutical
+        formulations, generic medicines and healthcare products. Our work is
+        guided by science, sharpened by experience, and inspired by the patients
+        we serve.
+      content2: We collaborate with doctors, distributors and institutions to bring
+        dependable therapies to communities across India and beyond, while
+        building a scalable foundation for the next chapter of our growth.
+    values_heading: Mission, vision and values
+    values:
+      - title: Mission
+        content: To deliver high-quality, affordable pharmaceutical solutions that
+          improve patient outcomes and strengthen healthcare access.
+      - title: Vision
+        content: To be a trusted pharmaceutical partner advancing healthcare for
+          communities across India and the world.
+      - title: Values
+        content: Integrity, scientific rigor, patient-first thinking, and an unwavering
+          commitment to quality and compliance.
+      - title: Commitment
+        content: We honor our responsibility to doctors, distributors, hospitals and
+          patients with consistent, ethical practice.
+    pillars:
+      - title: Market presence
+        content: Active distribution and partnerships across major Indian states with a
+          growing international footprint.
+      - title: Leadership philosophy
+        content: Disciplined operations, ethical decision-making and an open culture of
+          accountability.
+      - title: Future growth
+        content: Expanding therapeutic depth, manufacturing capability and digital
+          infrastructure for tomorrow.
+  quality:
+    hero:
+      title: Science, discipline and safety at every stage
+      subtitle: Quality is not a stage in our process — it is the foundation of every product we manufacture and every relationship we hold.
+    story:
+      title: A quality-first manufacturing culture
+      content1: From raw material sourcing to finished-goods release, our processes
+        are designed for repeatable quality. We maintain rigorous documentation,
+        controlled environments and a compliance-first mindset across every
+        formulation.
+      content2: Our research approach focuses on clinically relevant formulations —
+        built to meet real-world patient needs and prescribing realities for
+        healthcare professionals.
+    pillars_heading: Six commitments behind every product
+    pillars:
+      - title: Quality Assurance
+        content: Multi-stage QA framework covering raw material qualification,
+          in-process checks and finished-product release.
+      - title: Manufacturing Standards
+        content: GMP-aligned facilities and processes designed for consistency, safety
+          and traceability.
+      - title: Compliance
+        content: Documentation, batch records and regulatory alignment built into every
+          operation.
+      - title: Research Philosophy
+        content: Evidence-led formulation work centered on patient outcomes and clinical
+          relevance.
+      - title: Safety Commitment
+        content: Stability, bioequivalence and pharmacovigilance practices that put
+          patient safety first.
+      - title: Continuous Improvement
+        content: Investment in technology, training and audits to raise our standards
+          every year.
+    certifications:
+      title: Building toward globally recognized standards
+      content: We continuously invest in audits, accreditations and certifications to
+        strengthen confidence for our partners, regulators and patients.
+  contact:
+    hero:
+      title: Partner with Solmars Pharma
+      subtitle: Whether you are a healthcare professional, distributor or institution, our team is ready to support your requirements.
+    office:
+      title: Head Office
+      location: Ahmedabad, Gujarat, India
+    email:
+      title: Email
+      address: info@solmarspharma.com
+    phone:
+      title: Phone
+      number: +91 00000 00000
+  services:
+    hero:
+      title: Contract manufacturing and pharmaceutical partnerships
+      subtitle: We provide dependable manufacturing capacity and distribution support for healthcare businesses across India.
+    items:
+      - title: Pharma Marketing
+        content: Brand-building, field promotion and clinician engagement across
+          therapeutic segments.
+      - title: Distribution Support
+        content: Reliable supply, logistics planning and partner enablement across
+          regions.
+      - title: Healthcare Partnerships
+        content: Long-term relationships with hospitals, clinics and institutional
+          buyers.
+      - title: Third-party Manufacturing
+        content: Contract manufacturing of formulations under strict quality protocols.
+      - title: Medical Supply Chain
+        content: Optimized inventory, packaging and last-mile coordination for
+          healthcare networks.
+      - title: B2B Pharma Solutions
+        content: Tailored programs for institutions, government tenders and bulk supply
+          needs.
+    cta:
+      heading: Explore a partnership with Solmars Pharma
+      content: Share your requirements and our business team will respond with a
+        structured proposal.
+      button:
+        label: Start a conversation
+        url: /contact
+  careers:
+    hero:
+      title: Build a meaningful career in pharmaceutical healthcare
+      subtitle: At Solmars Pharma, your work directly impacts the lives of patients
+        and the practice of medicine. We are building a team that shares our
+        commitment to quality and humanity.
+    culture:
+      - title: People-first culture
+        content: Respect, collaboration and continuous learning shape how we work.
+      - title: Growth & training
+        content: Ongoing development and exposure across pharmaceutical functions.
+      - title: Purpose-driven work
+        content: Every role contributes to better healthcare outcomes.
+      - title: Wellbeing
+        content: Programs and policies designed to support employee wellness.
+    open_roles:
+      heading: We are growing across functions
+      content: We hire across manufacturing, quality, R&D, sales, marketing, supply
+        chain and corporate functions. New openings are posted as our teams
+        expand.
+    apply:
+      heading: Send us your profile
+      content: Share your CV and area of interest — we'll reach out when a relevant
+        role opens.
+      button:
+        label: Apply via contact form
+        url: /contact
+  downloads:
+    hero:
+      title: Brochures, catalogs and documents
+      subtitle: Access curated information for healthcare professionals, distributors
+        and partners.
+    docs:
+      - title: Corporate Brochure
+        desc: An overview of Solmars Pharma, our portfolio and our capabilities.
+        size: PDF · 2.1 MB
+      - title: Product Catalog
+        desc: Complete therapeutic segment listings and dosage formats.
+        size: PDF · 4.6 MB
+      - title: Distributor Onboarding Kit
+        desc: Information and documentation for new distribution partners.
+        size: PDF · 1.4 MB
+      - title: Third-party Manufacturing
+        desc: Capabilities, processes and quality systems overview.
+        size: PDF · 1.8 MB
+      - title: Quality Systems Summary
+        desc: An introduction to our QA framework and compliance practices.
+        size: PDF · 0.9 MB
+      - title: Therapeutic Segments Guide
+        desc: Reference deck for healthcare professionals and partners.
+        size: PDF · 3.2 MB

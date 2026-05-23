@@ -16,10 +16,10 @@ import { getProductBySlug, getRelatedProducts, type Product } from "@/data/produ
 import { ProductCard } from "@/components/ProductCard";
 
 export const Route = createFileRoute("/products/$slug")({
-  loader: ({ params }): { product: Product; related: Product[] } => {
-    const product = getProductBySlug(params.slug);
+  loader: async ({ params }): Promise<{ product: Product; related: Product[] }> => {
+    const product = await getProductBySlug(params.slug);
     if (!product) throw notFound();
-    const related = getRelatedProducts(params.slug);
+    const related = await getRelatedProducts(params.slug);
     return { product, related };
   },
   head: ({ loaderData, params }) => {
@@ -85,7 +85,7 @@ const tabs = ["Overview", "Composition", "Usage", "Safety"] as const;
 type Tab = (typeof tabs)[number];
 
 function ProductDetail() {
-  const { product, related } = Route.useLoaderData() as { product: Product; related: Product[] };
+  const { product, related } = Route.useLoaderData();
   const [tab, setTab] = useState<Tab>("Overview");
 
   return (
@@ -122,7 +122,7 @@ function ProductDetail() {
               <InfoItem label="Dosage Form" value={product.dosageForm} />
               <InfoItem label="Packaging" value={product.packaging} />
               <InfoItem label="Therapeutic Segment" value={product.segment} />
-              <InfoItem label="Category" value={product.category} />
+              <InfoItem label="Category" value={product.category ?? ""} />
             </dl>
 
             <div className="mt-7 flex flex-wrap gap-3">
@@ -171,7 +171,7 @@ function ProductDetail() {
       </section>
 
       <section className="container-pharma py-14">
-        <div className="grid gap-10 lg:grid-cols-[1.6fr_1fr]">
+        <div className="mx-auto max-w-4xl">
           <div className="min-h-[260px] animate-in fade-in duration-300" key={tab}>
             {tab === "Overview" && (
               <div className="space-y-8">
@@ -221,26 +221,6 @@ function ProductDetail() {
               </Block>
             )}
           </div>
-
-          {/* Side inquiry */}
-          <aside className="rounded-xl border border-border bg-card p-6 shadow-card lg:sticky lg:top-24 lg:self-start">
-            <h3 className="font-display text-lg font-semibold text-navy">Need more information?</h3>
-            <p className="mt-2 text-sm text-muted-foreground">
-              Our medical team can share detailed product dossiers, clinical references and
-              partnership terms.
-            </p>
-            <div className="mt-5 space-y-2.5">
-              <Link to="/contact" className="btn-premium flex items-center justify-between rounded-md bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground">
-                Request Information <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link to="/contact" className="btn-premium flex items-center justify-between rounded-md border border-border bg-card px-4 py-2.5 text-sm font-semibold text-navy hover:bg-secondary">
-                Distributor Inquiry <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link to="/downloads" className="btn-premium flex items-center justify-between rounded-md border border-border bg-card px-4 py-2.5 text-sm font-semibold text-navy hover:bg-secondary">
-                Download Brochure <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
-          </aside>
         </div>
       </section>
 
@@ -321,17 +301,21 @@ function ProductGallery({ product }: { product: Product }) {
     <div>
       <div className="relative aspect-square overflow-hidden rounded-xl border border-border bg-gradient-soft shadow-card">
         <div className="absolute inset-0 grid place-items-center">
-          <div className="flex flex-col items-center gap-5">
-            <span className="grid h-24 w-24 place-items-center rounded-2xl bg-primary/10 text-primary ring-1 ring-primary/15">
-              <Pill className="h-12 w-12" />
-            </span>
-            <div className="text-center">
-              <div className="font-display text-3xl font-bold text-navy">{initials}</div>
-              <div className="mt-1 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                {labels[active]}
+          {product.image ? (
+            <img src={product.image} alt={product.name} className="object-cover w-full h-full" />
+          ) : (
+            <div className="flex flex-col items-center gap-5">
+              <span className="grid h-24 w-24 place-items-center rounded-2xl bg-primary/10 text-primary ring-1 ring-primary/15">
+                <Pill className="h-12 w-12" />
+              </span>
+              <div className="text-center">
+                <div className="font-display text-3xl font-bold text-navy">{initials}</div>
+                <div className="mt-1 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                  {labels[active]}
+                </div>
               </div>
             </div>
-          </div>
+          )}
         </div>
         <div className="absolute right-4 top-4 rounded-full bg-white/80 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-primary shadow-card backdrop-blur">
           {product.dosageForm}

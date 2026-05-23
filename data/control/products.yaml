@@ -1,0 +1,314 @@
+# =============================================================================
+# PRODUCTS CATALOG
+# =============================================================================
+# This file controls all products shown on the website.
+# Products are organized into categories (e.g. Pain Management, Neurology).
+#
+# HOW TO ADD A NEW PRODUCT:
+#   1. Find the correct category below (or add a new one)
+#   2. Copy any existing product block (from "- slug:" to the end of its fields)
+#   3. Paste it under the same category and fill in your details
+#
+# HOW TO ADD A NEW CATEGORY:
+#   1. Add a new "- categoryName:" block under "categories:"
+#   2. Add at least one product under its "products:" list
+#
+# REQUIRED FIELDS:  slug, name, description
+# OPTIONAL FIELDS:  shortName, image, composition, dosageForm, packaging,
+#                   segment, therapeuticUse, benefits, usage, storage, safety
+# =============================================================================
+
+version: 2
+
+categories:
+
+  # ---------------------------------------------------------------------------
+  # CATEGORY: Pain Management
+  # Analgesics, anti-inflammatories, and muscle relaxants
+  # ---------------------------------------------------------------------------
+  - categoryName: Pain Management
+    products:
+
+      - slug: tesmol-mr              # URL ID — must be unique, no spaces (use hyphens)
+        name: Tesmol MR Tablets      # Full product name
+        shortName: Tesmol MR         # Short name for cards and labels
+        image: ""                    # Product image URL or leave "" for placeholder
+        description: A combination tablet indicated for acute musculoskeletal pain and inflammation associated with muscle spasm.
+        # --- Optional Detail Page Fields ---
+        composition: ""              # e.g. "Aceclofenac 100mg + Paracetamol 325mg"
+        dosageForm: Tablet
+        packaging: ""                # e.g. "10 tablets per strip, 10 strips per box"
+        segment: Pain Management
+        therapeuticUse: ""           # Shown under "Therapeutic Use" tab
+        benefits: []                 # List of bullet points e.g. ["Fast acting", "Clinically proven"]
+        usage: ""                    # Dosage and administration instructions
+        storage: ""                  # Storage conditions
+        safety: ""                   # Contraindications and warnings
+
+      - slug: enzosol-plus
+        name: Enzosol Plus Tablets
+        shortName: Enzosol Plus
+        image: ""
+        description: Enzyme-based anti-inflammatory tablet for soft-tissue inflammation, edema and post-operative recovery.
+        composition: ""
+        dosageForm: Tablet
+        packaging: ""
+        segment: Pain Management
+        therapeuticUse: ""
+        benefits: []
+        usage: ""
+        storage: ""
+        safety: ""
+
+      - slug: tesmol-relax
+        name: Tesmol Relax Gel
+        shortName: Tesmol Relax
+        image: ""
+        description: Multi-action topical gel providing rapid relief from muscular and joint pain.
+        composition: ""
+        dosageForm: Gel
+        packaging: ""
+        segment: Pain Management
+        therapeuticUse: ""
+        benefits: []
+        usage: ""
+        storage: ""
+        safety: ""
+
+      - slug: tesmol-90
+        name: Tesmol-90 Tablets
+        shortName: Tesmol-90
+        image: ""
+        description: Selective COX-2 inhibitor for management of acute and chronic inflammatory pain.
+        composition: ""
+        dosageForm: Tablet
+        packaging: ""
+        segment: Pain Management
+        therapeuticUse: ""
+        benefits: []
+        usage: ""
+        storage: ""
+        safety: ""
+
+  # ---------------------------------------------------------------------------
+  # CATEGORY: Orthopedic Care
+  # Bone health, fracture recovery, and joint care
+  # ---------------------------------------------------------------------------
+  - categoryName: Orthopedic Care
+    products:
+
+      - slug: bindfrac
+        name: Bindfrac Capsules
+        shortName: Bindfrac
+        image: ""
+        description: Plant-based formulation supporting bone healing, fracture recovery and joint care.
+        composition: ""
+        dosageForm: Capsule
+        packaging: ""
+        segment: Orthopedic Care
+        therapeuticUse: ""
+        benefits: []
+        usage: ""
+        storage: ""
+        safety: ""
+
+      - slug: bindfrac-syrup
+        name: Bindfrac Syrup
+        shortName: Bindfrac Syrup
+        image: ""
+        description: Palatable liquid formulation supporting bone development and recovery in children.
+        composition: ""
+        dosageForm: Syrup
+        packaging: ""
+        segment: Orthopedic Care
+        therapeuticUse: ""
+        benefits: []
+        usage: ""
+        storage: ""
+        safety: ""
+
+      - slug: bindfrac-total
+        name: Bindfrac Total Capsules
+        shortName: Bindfrac Total
+        image: ""
+        description: Complete bone-care formulation combining traditional and modern nutrients for recovery.
+        composition: ""
+        dosageForm: Capsule
+        packaging: ""
+        segment: Orthopedic Care
+        therapeuticUse: ""
+        benefits: []
+        usage: ""
+        storage: ""
+        safety: ""
+
+      - slug: safewalk-c
+        name: Safewalk-C Tablets
+        shortName: Safewalk-C
+        image: ""
+        description: Premium joint-care formulation combining cartilage builders with anti-inflammatory botanicals.
+        composition: ""
+        dosageForm: Tablet
+        packaging: ""
+        segment: Orthopedic Care
+        therapeuticUse: ""
+        benefits: []
+        usage: ""
+        storage: ""
+        safety: ""
+
+  # ---------------------------------------------------------------------------
+  # CATEGORY: Nutritional Supplements
+  # Vitamins, calcium, multivitamins and wellness products
+  # ---------------------------------------------------------------------------
+  - categoryName: Nutritional Supplements
+    products:
+
+      - slug: limemax-od
+        name: Limemax-OD Tablets
+        shortName: Limemax-OD
+        image: ""
+        description: Once-daily calcium supplement designed for adult bone health and pre-natal calcium support.
+        composition: ""
+        dosageForm: Tablet
+        packaging: ""
+        segment: Nutritional Supplements
+        therapeuticUse: ""
+        benefits: []
+        usage: ""
+        storage: ""
+        safety: ""
+
+      - slug: hopemax
+        name: Hopemax Tablets
+        shortName: Hopemax
+        image: ""
+        description: Comprehensive daily multivitamin formula supporting energy, immunity and overall wellness.
+        composition: ""
+        dosageForm: Tablet
+        packaging: ""
+        segment: Nutritional Supplements
+        therapeuticUse: ""
+        benefits: []
+        usage: ""
+        storage: ""
+        safety: ""
+
+      - slug: limemax-plus
+        name: Limemax Plus Tablets
+        shortName: Limemax Plus
+        image: ""
+        description: Advanced calcium formulation enriched with Vitamin K2-7 for directed bone mineralisation.
+        composition: ""
+        dosageForm: Tablet
+        packaging: ""
+        segment: Nutritional Supplements
+        therapeuticUse: ""
+        benefits: []
+        usage: ""
+        storage: ""
+        safety: ""
+
+      - slug: limemax-hd
+        name: Limemax HD Tablets
+        shortName: Limemax HD
+        image: ""
+        description: High-density bone health formula combining calcium with key vitamins and trace minerals.
+        composition: ""
+        dosageForm: Tablet
+        packaging: ""
+        segment: Nutritional Supplements
+        therapeuticUse: ""
+        benefits: []
+        usage: ""
+        storage: ""
+        safety: ""
+
+      - slug: hopemax-12g
+        name: Hopemax-12G Tablets
+        shortName: Hopemax-12G
+        image: ""
+        description: Premium antioxidant and energy formula supporting vitality, recovery and cellular health.
+        composition: ""
+        dosageForm: Tablet
+        packaging: ""
+        segment: Nutritional Supplements
+        therapeuticUse: ""
+        benefits: []
+        usage: ""
+        storage: ""
+        safety: ""
+
+      - slug: limemax-fem
+        name: Limemax FEM Tablets
+        shortName: Limemax FEM
+        image: ""
+        description: Specialized supplement for female reproductive and bone health.
+        composition: ""
+        dosageForm: Tablet
+        packaging: ""
+        segment: Nutritional Supplements
+        therapeuticUse: ""
+        benefits: []
+        usage: ""
+        storage: ""
+        safety: ""
+
+  # ---------------------------------------------------------------------------
+  # CATEGORY: Neurology
+  # Neuropathic pain and nerve health
+  # ---------------------------------------------------------------------------
+  - categoryName: Neurology
+    products:
+
+      - slug: pregazex-plus
+        name: Pregazex Plus Tablets
+        shortName: Pregazex Plus
+        image: ""
+        description: Comprehensive therapy for neuropathic pain with neuroprotective support.
+        composition: ""
+        dosageForm: Tablet
+        packaging: ""
+        segment: Neurology
+        therapeuticUse: ""
+        benefits: []
+        usage: ""
+        storage: ""
+        safety: ""
+
+      - slug: pregazex-sr
+        name: Pregazex SR Tablets
+        shortName: Pregazex SR
+        image: ""
+        description: Sustained release formulation providing extended neuropathic pain control.
+        composition: ""
+        dosageForm: Tablet
+        packaging: ""
+        segment: Neurology
+        therapeuticUse: ""
+        benefits: []
+        usage: ""
+        storage: ""
+        safety: ""
+
+  # ---------------------------------------------------------------------------
+  # CATEGORY: General Healthcare
+  # Gastroenterology and other general-purpose products
+  # ---------------------------------------------------------------------------
+  - categoryName: General Healthcare
+    products:
+
+      - slug: softrab-dsr
+        name: Softrab-DSR Capsules
+        shortName: Softrab DSR
+        image: ""
+        description: Effective acid suppression combined with prokinetic action for symptomatic GERD and dyspepsia.
+        composition: ""
+        dosageForm: Capsule
+        packaging: ""
+        segment: General Healthcare
+        therapeuticUse: ""
+        benefits: []
+        usage: ""
+        storage: ""
+        safety: ""

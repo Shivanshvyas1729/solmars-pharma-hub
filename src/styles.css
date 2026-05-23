@@ -1,5 +1,4 @@
-@import "tailwindcss" source(none);
-@source "../src";
+@import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
@@ -104,8 +103,12 @@
 
 @layer utilities {
   .container-pharma { max-width: 1240px; margin-inline: auto; padding-inline: 1.25rem; }
-  .bg-gradient-hero { background-image: var(--gradient-hero); }
-  .bg-gradient-soft { background-image: var(--gradient-soft); }
+  .bg-gradient-hero {
+    @apply bg-gradient-to-br from-primary via-primary/90 to-primary/80;
+  }
+  .bg-gradient-soft {
+    @apply bg-gradient-to-br from-white via-primary/5 to-white;
+  }
   .shadow-card { box-shadow: var(--shadow-card); }
   .shadow-elevated { box-shadow: var(--shadow-elevated); }
   .text-navy { color: var(--navy); }

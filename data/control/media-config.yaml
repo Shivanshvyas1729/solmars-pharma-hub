@@ -1,0 +1,46 @@
+# =============================================================================
+# MEDIA CONFIGURATION
+# =============================================================================
+# This file controls all media assets used across the website.
+# Change any URL or file path below to update the corresponding asset.
+# Supported: external URLs (https://...) or local paths (/uploads/...)
+# =============================================================================
+
+# ─── LOGO ────────────────────────────────────────────────────────────────────
+# The logo image shown in the top-left of the navigation header.
+# Change this to update the logo across the entire site instantly.
+logo: "https://i.ibb.co/SXKRf6fX/f4223320-c9ae-479b-9928-b01ff908332a.jpg"
+
+# ─── HERO IMAGE ──────────────────────────────────────────────────────────────
+# The main background image on the home page hero section.
+hero_image: "https://i.ibb.co/Y71zN1WC/image.png"
+
+# ─── VIDEOS ──────────────────────────────────────────────────────────────────
+# List of videos available on the site (e.g. company intro, product demo).
+# Each item needs a title and a URL (can be a local file or external link).
+videos:
+  - title: "Company Intro"
+    url: "/videos/intro.mp4"
+
+# ─── BANNERS ─────────────────────────────────────────────────────────────────
+# Promotional banner images (used in marketing sections or slideshows).
+banners:
+  - title: "Main Banner"
+    image: "/uploads/hero-bg.jpg"
+
+# ─── GALLERY ─────────────────────────────────────────────────────────────────
+# Photo gallery images (team, facility, research, etc.)
+gallery:
+  - title: "Team"
+    image: "/assets/team.jpg"
+  - title: "Research"
+    image: "/assets/research.jpg"
+
+# ─── SOCIAL LINKS ────────────────────────────────────────────────────────────
+# Links to your social media profiles shown in the site footer.
+# Replace the "#" with actual profile URLs.
+social_links:
+  - name: "LinkedIn"
+    url: "#"
+  - name: "Twitter"
+    url: "#"

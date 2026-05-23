@@ -3,9 +3,13 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Search } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { ProductCard } from "@/components/ProductCard";
-import { products, productCategories } from "@/data/products";
+import { getProducts, productCategories, type Product } from "@/data/products";
 
-export const Route = createFileRoute("/products")({
+export const Route = createFileRoute("/products/")({
+  loader: async () => {
+    const products = await getProducts();
+    return { products };
+  },
   head: () => ({
     meta: [
       { title: "Products — Solmars Pharma Therapeutic Portfolio" },
@@ -20,6 +24,7 @@ export const Route = createFileRoute("/products")({
 });
 
 function ProductsPage() {
+  const { products } = Route.useLoaderData();
   const [active, setActive] = useState<string>("All");
   const [query, setQuery] = useState("");
 
@@ -34,7 +39,7 @@ function ProductsPage() {
         p.segment.toLowerCase().includes(q);
       return inCat && inQuery;
     });
-  }, [active, query]);
+  }, [active, query, products]);
 
   const filters = ["All", ...productCategories];
 
