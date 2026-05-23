@@ -1,20 +1,34 @@
 import type { ComponentType } from "react";
 import {
   DynamicHero,
+  DynamicPageHero,
   DynamicStats,
   DynamicSplit,
   DynamicCardGrid,
+  DynamicColumns,
   DynamicBanner,
+  DynamicCtaCard,
+  DynamicCenteredCta,
+  DynamicAccentPanel,
+  DynamicDocumentGrid,
+  DynamicContact,
   DynamicText,
   DynamicImage,
 } from "@/components/dynamic/sections";
 
 export const componentMap: Record<string, ComponentType<Record<string, unknown>>> = {
   hero: DynamicHero,
+  pageHero: DynamicPageHero,
   stats: DynamicStats,
   split: DynamicSplit,
   cardGrid: DynamicCardGrid,
+  columns: DynamicColumns,
   banner: DynamicBanner,
+  ctaCard: DynamicCtaCard,
+  centeredCta: DynamicCenteredCta,
+  accentPanel: DynamicAccentPanel,
+  documentGrid: DynamicDocumentGrid,
+  contact: DynamicContact,
   text: DynamicText,
   image: DynamicImage,
 };

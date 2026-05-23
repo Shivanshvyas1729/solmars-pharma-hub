@@ -1,0 +1,29 @@
+meta:
+  title: "Services — Pharma Marketing, Distribution & Manufacturing"
+  description: "Solmars Pharma offers pharma marketing, distribution support, healthcare partnerships, third-party manufacturing and medical supply chain services."
+  ogTitle: "Solmars Pharma Services"
+  ogDescription: "End-to-end pharma services for distributors, hospitals and B2B partners."
+  canonical: "/services"
+
+sections:
+  - type: pageHero
+    eyebrow: "Services"
+    title: "End-to-end pharmaceutical services for partners and institutions"
+    description: "From marketing and distribution to third-party manufacturing, we support healthcare partners with reliable, scalable services."
+
+  - type: cardGrid
+    columns: 3
+    centered: false
+    items:
+      - { icon: "megaphone", title: "Pharma Marketing", description: "Brand-building, field promotion and clinician engagement across therapeutic segments." }
+      - { icon: "truck", title: "Distribution Support", description: "Reliable supply, logistics planning and partner enablement across regions." }
+      - { icon: "handshake", title: "Healthcare Partnerships", description: "Long-term relationships with hospitals, clinics and institutional buyers." }
+      - { icon: "factory", title: "Third-party Manufacturing", description: "Contract manufacturing of formulations under strict quality protocols." }
+      - { icon: "package-check", title: "Medical Supply Chain", description: "Optimized inventory, packaging and last-mile coordination for healthcare networks." }
+      - { icon: "building", title: "B2B Pharma Solutions", description: "Tailored programs for institutions, government tenders and bulk supply needs." }
+
+  - type: ctaCard
+    title: "Explore a partnership with Solmars Pharma"
+    description: "Share your requirements and our business team will respond with a structured proposal."
+    actions:
+      - { label: "Start a conversation", to: "/contact", variant: "primary" }

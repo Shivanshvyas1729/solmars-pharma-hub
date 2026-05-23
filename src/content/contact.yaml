@@ -1,0 +1,36 @@
+meta:
+  title: "Contact Solmars Pharma — Business & Distributor Inquiries"
+  description: "Reach Solmars Pharma for business, distributor and partnership inquiries. Headquartered in Ahmedabad, Gujarat, India."
+  ogTitle: "Contact Solmars Pharma"
+  ogDescription: "Get in touch with our team for products, partnerships and careers."
+  canonical: "/contact"
+
+sections:
+  - type: pageHero
+    eyebrow: "Contact"
+    title: "Let's talk about healthcare, partnership and growth"
+    description: "Our team is available for business inquiries, distributor onboarding and product information."
+
+  - type: contact
+    formTitle: "Send us an inquiry"
+    formDescription: "We typically respond within 1–2 business days."
+    submitLabel: "Send inquiry"
+    showMap: true
+    mapPlaceholder: "Google Maps placeholder"
+    inquiryTypes:
+      - "General inquiry"
+      - "Distributor / partnership"
+      - "Third-party manufacturing"
+      - "Career opportunity"
+    info:
+      - icon: "map-pin"
+        title: "Head Office"
+        lines: ["Ahmedabad, Gujarat, India"]
+      - icon: "mail"
+        title: "Email"
+        lines:
+          - { text: "info@solmarspharma.com", href: "mailto:info@solmarspharma.com" }
+      - icon: "phone"
+        title: "Phone"
+        lines:
+          - { text: "+91 00000 00000", href: "tel:+910000000000" }
