@@ -338,12 +338,12 @@ export function DynamicAccentPanel(props: Record<string, any>) {
 
 /* ============== DOCUMENT GRID (downloads page) ============== */
 export function DynamicDocumentGrid(props: Record<string, any>) {
-  const items = (props.items ?? []) as Array<{ title: string; description: string; size?: string; href?: string }>;
+  const items = (props.items ?? []) as Array<{ title: string; description: string; size?: string; href?: string; icon?: string }>;
   return (
     <section className="container-pharma py-20">
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {items.map((d, i) => {
-          const Icon = resolveIcon(d.icon as any) ?? null;
+          const Icon = resolveIcon(d.icon);
           return (
             <article key={`${d.title}-${i}`} className="flex flex-col rounded-xl border border-border bg-card p-7 shadow-card card-lift">
               <span className="grid h-11 w-11 place-items-center rounded-lg bg-primary/10 text-primary">
