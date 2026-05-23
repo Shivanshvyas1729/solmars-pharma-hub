@@ -1,0 +1,30 @@
+meta:
+  title: "Careers at Solmars Pharma — Build Your Future in Healthcare"
+  description: "Join Solmars Pharma. Explore roles, our people-first culture and opportunities to make a difference in pharmaceutical healthcare."
+  ogTitle: "Careers at Solmars Pharma"
+  ogDescription: "Grow your career with a purpose-driven pharma company."
+  canonical: "/careers"
+
+sections:
+  - type: pageHero
+    eyebrow: "Careers"
+    title: "Build a meaningful career in pharmaceutical healthcare"
+    description: "At Solmars Pharma, your work directly impacts the lives of patients and the practice of medicine. We are building a team that shares our commitment to quality and humanity."
+
+  - type: cardGrid
+    columns: 4
+    centered: false
+    items:
+      - { icon: "users", title: "People-first culture", description: "Respect, collaboration and continuous learning shape how we work." }
+      - { icon: "graduation-cap", title: "Growth & training", description: "Ongoing development and exposure across pharmaceutical functions." }
+      - { icon: "sparkles", title: "Purpose-driven work", description: "Every role contributes to better healthcare outcomes." }
+      - { icon: "heart", title: "Wellbeing", description: "Programs and policies designed to support employee wellness." }
+
+  - type: centeredCta
+    background: "muted"
+    eyebrow: "Open opportunities"
+    title: "We are growing across functions"
+    description: "We hire across manufacturing, quality, R&D, sales, marketing, supply chain and corporate functions. New openings are posted as our teams expand."
+    cardTitle: "Send us your profile"
+    cardDescription: "Share your CV and area of interest — we'll reach out when a relevant role opens."
+    cta: { label: "Apply via contact form", to: "/contact", variant: "primary" }

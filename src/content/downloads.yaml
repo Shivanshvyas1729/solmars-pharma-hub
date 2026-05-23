@@ -1,0 +1,21 @@
+meta:
+  title: "Downloads — Solmars Pharma Brochures & Catalogs"
+  description: "Download Solmars Pharma corporate brochures, product catalogs and informational PDFs for healthcare professionals and partners."
+  ogTitle: "Solmars Pharma Downloads"
+  ogDescription: "Corporate brochures, catalogs and product documents."
+  canonical: "/downloads"
+
+sections:
+  - type: pageHero
+    eyebrow: "Downloads"
+    title: "Brochures, catalogs and documents"
+    description: "Access curated information for healthcare professionals, distributors and partners."
+
+  - type: documentGrid
+    items:
+      - { icon: "file-text", title: "Corporate Brochure", description: "An overview of Solmars Pharma, our portfolio and our capabilities.", size: "PDF · 2.1 MB" }
+      - { icon: "file-text", title: "Product Catalog", description: "Complete therapeutic segment listings and dosage formats.", size: "PDF · 4.6 MB" }
+      - { icon: "file-text", title: "Distributor Onboarding Kit", description: "Information and documentation for new distribution partners.", size: "PDF · 1.4 MB" }
+      - { icon: "file-text", title: "Third-party Manufacturing", description: "Capabilities, processes and quality systems overview.", size: "PDF · 1.8 MB" }
+      - { icon: "file-text", title: "Quality Systems Summary", description: "An introduction to our QA framework and compliance practices.", size: "PDF · 0.9 MB" }
+      - { icon: "file-text", title: "Therapeutic Segments Guide", description: "Reference deck for healthcare professionals and partners.", size: "PDF · 3.2 MB" }

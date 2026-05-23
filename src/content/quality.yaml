@@ -1,0 +1,39 @@
+meta:
+  title: "Quality & Research — Solmars Pharma"
+  description: "Solmars Pharma's quality assurance, manufacturing standards, compliance and research philosophy across every formulation."
+  ogTitle: "Quality & Research at Solmars Pharma"
+  ogDescription: "Rigorous quality systems and scientific discipline at every stage."
+  canonical: "/quality"
+
+sections:
+  - type: pageHero
+    eyebrow: "Quality & Research"
+    title: "Science, discipline and safety at every stage"
+    description: "Quality is not a stage in our process — it is the foundation of every product we manufacture and every relationship we hold."
+
+  - type: split
+    image: "research"
+    imageAlt: "Quality control laboratory"
+    imagePosition: "right"
+    title: "A quality-first manufacturing culture"
+    paragraphs:
+      - "From raw material sourcing to finished-goods release, our processes are designed for repeatable quality. We maintain rigorous documentation, controlled environments and a compliance-first mindset across every formulation."
+      - "Our research approach focuses on clinically relevant formulations — built to meet real-world patient needs and prescribing realities for healthcare professionals."
+
+  - type: cardGrid
+    background: "muted"
+    eyebrow: "Our pillars"
+    title: "Six commitments behind every product"
+    columns: 3
+    items:
+      - { icon: "shield-check", title: "Quality Assurance", description: "Multi-stage QA framework covering raw material qualification, in-process checks and finished-product release." }
+      - { icon: "flask-conical", title: "Manufacturing Standards", description: "GMP-aligned facilities and processes designed for consistency, safety and traceability." }
+      - { icon: "clipboard-check", title: "Compliance", description: "Documentation, batch records and regulatory alignment built into every operation." }
+      - { icon: "microscope", title: "Research Philosophy", description: "Evidence-led formulation work centered on patient outcomes and clinical relevance." }
+      - { icon: "award", title: "Safety Commitment", description: "Stability, bioequivalence and pharmacovigilance practices that put patient safety first." }
+      - { icon: "badge-check", title: "Continuous Improvement", description: "Investment in technology, training and audits to raise our standards every year." }
+
+  - type: accentPanel
+    eyebrow: "Certifications"
+    title: "Building toward globally recognized standards"
+    description: "We continuously invest in audits, accreditations and certifications to strengthen confidence for our partners, regulators and patients."

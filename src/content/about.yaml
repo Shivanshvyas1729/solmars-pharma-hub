@@ -1,0 +1,39 @@
+meta:
+  title: "About Solmars Pharma — Our Story, Mission & Vision"
+  description: "Learn about Solmars Pharma — an Ahmedabad-based pharmaceutical company committed to affordable, high-quality medicines for humanity."
+  ogTitle: "About Solmars Pharma"
+  ogDescription: "Affordable, high-quality medicines built on science, ethics and care."
+  canonical: "/about"
+
+sections:
+  - type: pageHero
+    eyebrow: "About Us"
+    title: "A pharmaceutical company anchored in trust and science"
+    description: "Headquartered in Ahmedabad, Gujarat, Solmars Pharma is dedicated to building a healthier tomorrow through reliable formulations, ethical practice, and partnerships with healthcare professionals."
+
+  - type: split
+    image: "team"
+    imageAlt: "Solmars Pharma team"
+    imagePosition: "left"
+    title: "Our story"
+    paragraphs:
+      - "Founded with a singular purpose — to make quality medicines accessible to all — Solmars Pharma has grown into a trusted name in pharmaceutical formulations, generic medicines and healthcare products. Our work is guided by science, sharpened by experience, and inspired by the patients we serve."
+      - "We collaborate with doctors, distributors and institutions to bring dependable therapies to communities across India and beyond, while building a scalable foundation for the next chapter of our growth."
+
+  - type: cardGrid
+    background: "muted"
+    eyebrow: "What guides us"
+    title: "Mission, vision and values"
+    columns: 2
+    items:
+      - { icon: "target", title: "Mission", description: "To deliver high-quality, affordable pharmaceutical solutions that improve patient outcomes and strengthen healthcare access." }
+      - { icon: "eye", title: "Vision", description: "To be a trusted pharmaceutical partner advancing healthcare for communities across India and the world." }
+      - { icon: "heart", title: "Values", description: "Integrity, scientific rigor, patient-first thinking, and an unwavering commitment to quality and compliance." }
+      - { icon: "compass", title: "Commitment", description: "We honor our responsibility to doctors, distributors, hospitals and patients with consistent, ethical practice." }
+
+  - type: columns
+    columns: 3
+    items:
+      - { title: "Market presence", description: "Active distribution and partnerships across major Indian states with a growing international footprint." }
+      - { title: "Leadership philosophy", description: "Disciplined operations, ethical decision-making and an open culture of accountability." }
+      - { title: "Future growth", description: "Expanding therapeutic depth, manufacturing capability and digital infrastructure for tomorrow." }
