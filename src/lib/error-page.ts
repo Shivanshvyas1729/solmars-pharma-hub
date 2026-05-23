@@ -1,4 +1,7 @@
 export function renderErrorPage(): string {
+  const baseUrl = import.meta.env.BASE_URL ?? "/";
+  const homeUrl = import.meta.env.VITE_GITHUB_PAGES === "true" ? `${baseUrl}#/` : baseUrl;
+
   return `<!doctype html>
 <html lang="en">
   <head>
@@ -22,7 +25,7 @@ export function renderErrorPage(): string {
       <p>Something went wrong on our end. You can try refreshing or head back home.</p>
       <div class="actions">
         <button class="primary" onclick="location.reload()">Try again</button>
-        <a class="secondary" href="/">Go home</a>
+        <a class="secondary" href="${homeUrl}">Go home</a>
       </div>
     </div>
   </body>

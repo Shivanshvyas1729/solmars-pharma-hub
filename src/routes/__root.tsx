@@ -11,6 +11,7 @@ import {
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { getMediaConfig } from "@/data/media";
+import { resolveAppUrl } from "@/lib/utils";
 
 import appCss from "../styles.css?url";
 
@@ -60,7 +61,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
             Try again
           </button>
           <a
-            href="/"
+            href={resolveAppUrl("/")}
             className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
           >
             Go home
@@ -81,7 +82,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Solmars Pharma — Trusted Pharmaceutical Solutions for Humanity" },
-      { name: "description", content: "Solmars Pharma is an Ahmedabad-based pharmaceutical company delivering quality generic medicines, formulations and healthcare products for doctors, distributors and hospitals." },
+      {
+        name: "description",
+        content:
+          "Solmars Pharma is an Ahmedabad-based pharmaceutical company delivering quality generic medicines, formulations and healthcare products for doctors, distributors and hospitals.",
+      },
       { name: "author", content: "Solmars Pharma" },
       { property: "og:site_name", content: "Solmars Pharma" },
       { property: "og:title", content: "Solmars Pharma — For Humanity" },
@@ -93,7 +98,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap",
+      },
     ],
     scripts: [
       {

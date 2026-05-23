@@ -1,6 +1,7 @@
-import { createServerFn } from '@tanstack/react-start';
+import { createServerFn } from "@tanstack/react-start";
+import { resolvePublicPath } from "@/lib/utils";
 
-export type MediaType = 'image' | 'video' | 'youtube' | 'vimeo' | 'unknown';
+export type MediaType = "image" | "video" | "youtube" | "vimeo" | "unknown";
 
 export interface ResolvedMedia {
   type: MediaType;
@@ -9,54 +10,67 @@ export interface ResolvedMedia {
 
 export const resolveMediaUrl = createServerFn({ method: "GET" })
   .inputValidator((url: string) => url)
-  .handler(async (ctx: any): Promise<ResolvedMedia> => {
+  .handler(async (ctx: { data: string }): Promise<ResolvedMedia> => {
     const url = ctx.data;
-    if (!url) return { type: 'unknown', src: '' };
+    if (!url) return { type: "unknown", src: "" };
 
-    if (!url.startsWith('http')) {
-      const ext = url.split('.').pop()?.toLowerCase() || '';
-      if (['mp4', 'webm', 'ogg'].includes(ext)) return { type: 'video', src: url };
-      return { type: 'image', src: url };
+    const resolvedUrl = resolvePublicPath(url);
+    if (!resolvedUrl.startsWith("http")) {
+      const ext = resolvedUrl.split(".").pop()?.toLowerCase() || "";
+      if (["mp4", "webm", "ogg"].includes(ext)) return { type: "video", src: resolvedUrl };
+      return { type: "image", src: resolvedUrl };
     }
 
     try {
-      const urlObj = new URL(url);
-      
-      if (urlObj.hostname.includes('youtube.com') || urlObj.hostname.includes('youtu.be')) {
-        let videoId = '';
-        if (urlObj.hostname.includes('youtu.be')) {
+      const urlObj = new URL(resolvedUrl);
+
+      if (urlObj.hostname.includes("youtube.com") || urlObj.hostname.includes("youtu.be")) {
+        let videoId = "";
+        if (urlObj.hostname.includes("youtu.be")) {
           videoId = urlObj.pathname.slice(1);
         } else {
-          videoId = urlObj.searchParams.get('v') || '';
+          videoId = urlObj.searchParams.get("v") || "";
         }
         if (videoId) {
-          return { type: 'youtube', src: `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=0&showinfo=0&rel=0` };
+          return {
+            type: "youtube",
+            src: `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=0&showinfo=0&rel=0`,
+          };
         }
       }
 
-      if (urlObj.hostname.includes('vimeo.com')) {
-        const videoId = urlObj.pathname.split('/').pop();
+      if (urlObj.hostname.includes("vimeo.com")) {
+        const videoId = urlObj.pathname.split("/").pop();
         if (videoId) {
-          return { type: 'vimeo', src: `https://player.vimeo.com/video/${videoId}?background=1&autoplay=1&loop=1&byline=0&title=0` };
+          return {
+            type: "vimeo",
+            src: `https://player.vimeo.com/video/${videoId}?background=1&autoplay=1&loop=1&byline=0&title=0`,
+          };
         }
       }
 
-      const ext = urlObj.pathname.split('.').pop()?.toLowerCase() || '';
-      if (['mp4', 'webm', 'ogg'].includes(ext)) return { type: 'video', src: url };
-      if (['jpg', 'jpeg', 'png', 'gif', 'webp', 'svg'].includes(ext)) return { type: 'image', src: url };
+      const ext = urlObj.pathname.split(".").pop()?.toLowerCase() || "";
+      if (["mp4", "webm", "ogg"].includes(ext)) return { type: "video", src: resolvedUrl };
+      if (["jpg", "jpeg", "png", "gif", "webp", "svg"].includes(ext))
+        return { type: "image", src: resolvedUrl };
 
-      const response = await fetch(url, { headers: { 'User-Agent': 'bot' } });
+      const response = await fetch(resolvedUrl, { headers: { "User-Agent": "bot" } });
       if (response.ok) {
         const html = await response.text();
-        const ogMatch = html.match(/<meta\s+(?:property|name)=["'](?:og:image|twitter:image)["']\s+content=["']([^"']+)["']/i) || 
-                        html.match(/<meta\s+content=["']([^"']+)["']\s+(?:property|name)=["'](?:og:image|twitter:image)["']/i);
+        const ogMatch =
+          html.match(
+            /<meta\s+(?:property|name)=["'](?:og:image|twitter:image)["']\s+content=["']([^"']+)["']/i,
+          ) ||
+          html.match(
+            /<meta\s+content=["']([^"']+)["']\s+(?:property|name)=["'](?:og:image|twitter:image)["']/i,
+          );
         if (ogMatch && ogMatch[1]) {
-          return { type: 'image', src: ogMatch[1] };
+          return { type: "image", src: ogMatch[1] };
         }
       }
     } catch (e) {
-      console.error('Failed to resolve media URL:', e);
+      console.error("Failed to resolve media URL:", e);
     }
 
-    return { type: 'image', src: url };
+    return { type: "image", src: resolvedUrl };
   });

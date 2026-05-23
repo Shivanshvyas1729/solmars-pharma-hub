@@ -5,7 +5,12 @@ import tsconfigPaths from "vite-tsconfig-paths";
 import { cloudflare } from "@cloudflare/vite-plugin";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 
+const isGitHubPages = process.env.VITE_GITHUB_PAGES === "true";
+const githubRepoName = "solmars-pharma-hub";
+const base = isGitHubPages ? `/${githubRepoName}/` : "/";
+
 export default defineConfig({
+  base,
   plugins: [
     tanstackStart({
       server: { entry: "server" },

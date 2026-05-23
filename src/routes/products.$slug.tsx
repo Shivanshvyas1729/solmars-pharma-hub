@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { getProductBySlug, getRelatedProducts, type Product } from "@/data/products";
 import { ProductCard } from "@/components/ProductCard";
+import { resolveAppUrl } from "@/lib/utils";
 
 export const Route = createFileRoute("/products/$slug")({
   loader: async ({ params }): Promise<{ product: Product; related: Product[] }> => {
@@ -25,7 +26,7 @@ export const Route = createFileRoute("/products/$slug")({
   head: ({ loaderData, params }) => {
     const p = loaderData?.product;
     if (!p) return { meta: [{ title: "Product — Solmars Pharma" }] };
-    const url = `/products/${params.slug}`;
+    const url = resolveAppUrl(`/products/${params.slug}`);
     return {
       meta: [
         { title: `${p.name} — Solmars Pharma` },
@@ -54,8 +55,13 @@ export const Route = createFileRoute("/products/$slug")({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Home", item: "/" },
-              { "@type": "ListItem", position: 2, name: "Products", item: "/products" },
+              { "@type": "ListItem", position: 1, name: "Home", item: resolveAppUrl("/") },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Products",
+                item: resolveAppUrl("/products"),
+              },
               { "@type": "ListItem", position: 3, name: p.name, item: url },
             ],
           }),
@@ -67,7 +73,10 @@ export const Route = createFileRoute("/products/$slug")({
     <div className="container-pharma py-24 text-center">
       <h1 className="text-2xl font-bold text-navy">Product not found</h1>
       <p className="mt-2 text-muted-foreground">The product you are looking for may have moved.</p>
-      <Link to="/products" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline">
+      <Link
+        to="/products"
+        className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline"
+      >
         <ArrowLeft className="h-4 w-4" /> Back to products
       </Link>
     </div>
@@ -94,9 +103,13 @@ function ProductDetail() {
       <div className="border-b border-border bg-gradient-soft">
         <div className="container-pharma py-4 text-sm">
           <nav className="flex flex-wrap items-center gap-2 text-muted-foreground">
-            <Link to="/" className="hover:text-primary">Home</Link>
+            <Link to="/" className="hover:text-primary">
+              Home
+            </Link>
             <span>/</span>
-            <Link to="/products" className="hover:text-primary">Products</Link>
+            <Link to="/products" className="hover:text-primary">
+              Products
+            </Link>
             <span>/</span>
             <span className="font-medium text-navy">{product.name}</span>
           </nav>
@@ -126,13 +139,22 @@ function ProductDetail() {
             </dl>
 
             <div className="mt-7 flex flex-wrap gap-3">
-              <Link to="/contact" className="btn-premium inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-card">
+              <Link
+                to="/contact"
+                className="btn-premium inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-card"
+              >
                 <Mail className="h-4 w-4" /> Request Information
               </Link>
-              <Link to="/contact" className="btn-premium inline-flex items-center gap-2 rounded-md border border-border bg-card px-5 py-3 text-sm font-semibold text-navy hover:bg-secondary">
+              <Link
+                to="/contact"
+                className="btn-premium inline-flex items-center gap-2 rounded-md border border-border bg-card px-5 py-3 text-sm font-semibold text-navy hover:bg-secondary"
+              >
                 <Handshake className="h-4 w-4" /> Distributor Inquiry
               </Link>
-              <Link to="/contact" className="btn-premium inline-flex items-center gap-2 rounded-md border border-border bg-card px-5 py-3 text-sm font-semibold text-navy hover:bg-secondary">
+              <Link
+                to="/contact"
+                className="btn-premium inline-flex items-center gap-2 rounded-md border border-border bg-card px-5 py-3 text-sm font-semibold text-navy hover:bg-secondary"
+              >
                 <Phone className="h-4 w-4" /> Contact Us
               </Link>
             </div>
@@ -140,8 +162,9 @@ function ProductDetail() {
             <p className="mt-6 flex items-start gap-2 rounded-md border border-border bg-secondary/50 p-3 text-xs text-muted-foreground">
               <ShieldAlert className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
               <span>
-                <strong className="text-navy">Prescription only.</strong> To be sold by retail on the
-                prescription of a registered medical practitioner. Read the package insert before use.
+                <strong className="text-navy">Prescription only.</strong> To be sold by retail on
+                the prescription of a registered medical practitioner. Read the package insert
+                before use.
               </span>
             </p>
           </div>
@@ -196,8 +219,8 @@ function ProductDetail() {
                   {product.composition}
                 </p>
                 <p className="mt-4 text-sm">
-                  Manufactured under stringent quality controls aligned with current Good Manufacturing
-                  Practices (cGMP).
+                  Manufactured under stringent quality controls aligned with current Good
+                  Manufacturing Practices (cGMP).
                 </p>
               </Block>
             )}
@@ -237,7 +260,10 @@ function ProductDetail() {
                   Other formulations in {product.category}
                 </h2>
               </div>
-              <Link to="/products" className="hidden text-sm font-semibold text-primary hover:underline md:inline-flex">
+              <Link
+                to="/products"
+                className="hidden text-sm font-semibold text-primary hover:underline md:inline-flex"
+              >
                 View all products
               </Link>
             </div>
