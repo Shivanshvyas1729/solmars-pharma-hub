@@ -9,17 +9,17 @@ const preloadHref = resolveAsset(meta.preloadImage);
 
 export const Route = createFileRoute("/")({
   head: () => ({
-    meta: ([
-      meta.title ? { title: meta.title } : null,
-      meta.description ? { name: "description", content: meta.description } : null,
-      meta.ogTitle ? { property: "og:title", content: meta.ogTitle } : null,
-      meta.ogDescription ? { property: "og:description", content: meta.ogDescription } : null,
-      meta.canonical ? { property: "og:url", content: meta.canonical } : null,
-    ].filter(Boolean) as Array<Record<string, string>>),
-    links: ([
-      meta.canonical ? { rel: "canonical", href: meta.canonical } : null,
-      preloadHref ? { rel: "preload", as: "image", href: preloadHref, fetchpriority: "high" } : null,
-    ].filter(Boolean) as Array<Record<string, string>>),
+    meta: [
+      meta.title && { title: meta.title },
+      meta.description && { name: "description", content: meta.description },
+      meta.ogTitle && { property: "og:title", content: meta.ogTitle },
+      meta.ogDescription && { property: "og:description", content: meta.ogDescription },
+      meta.canonical && { property: "og:url", content: meta.canonical },
+    ].filter(Boolean) as any,
+    links: [
+      meta.canonical && { rel: "canonical", href: meta.canonical },
+      preloadHref && { rel: "preload", as: "image", href: preloadHref, fetchpriority: "high" },
+    ].filter(Boolean) as any,
   }),
   component: Home,
 });
