@@ -1,0 +1,9 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/((?!assets/|robots.txt|favicon.ico|.*\\..*).*)",
+      "destination": "/api/index.js"
+    }
+  ]
+}
