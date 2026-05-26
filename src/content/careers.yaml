@@ -20,6 +20,18 @@ sections:
       - { icon: "sparkles", title: "Purpose-driven work", description: "Every role contributes to better healthcare outcomes." }
       - { icon: "heart", title: "Wellbeing", description: "Programs and policies designed to support employee wellness." }
 
+  - type: split
+    eyebrow: "Work With Us"
+    title: "Empowering the minds that shape tomorrow's healthcare"
+    description: "At Solmars Pharma, we value curiosity, safety, and a drive to improve human lives. We provide collaborative work environments, competitive benefits, and a clear path for professional and personal growth."
+    image: "careers-split"
+    imageAlt: "Pharma professionals collaborating"
+    imagePosition: "right"
+    bullets:
+      - "Dynamic cross-functional learning opportunities"
+      - "Inclusive and modern workspace culture"
+      - "Commitment to career progression and mentoring"
+
   - type: centeredCta
     background: "muted"
     eyebrow: "Open opportunities"

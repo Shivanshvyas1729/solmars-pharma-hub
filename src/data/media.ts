@@ -1,4 +1,5 @@
-import { getCmsData } from "@/api/cms";
+import yaml from "js-yaml";
+import mediaRaw from "@/content/media-config.yaml?raw";
 import { resolvePublicPath } from "@/lib/utils";
 import { MediaConfigSchema, MediaConfig } from "./schemas";
 import { formatZodErrors } from "@/lib/zod-error";
@@ -25,19 +26,23 @@ function normalizeMediaConfig(media: MediaConfig): MediaConfig {
   };
 }
 
-async function loadAndValidateMedia(): Promise<MediaConfig> {
-  const raw = await getCmsData({ data: "media-config.yaml" });
+function loadAndValidateMedia(): MediaConfig {
+  if (mediaCache) return mediaCache;
 
-  const result = MediaConfigSchema.safeParse(raw);
-  if (!result.success) {
-    throw new Error(`Media configuration error:\n${formatZodErrors(result.error)}`);
+  try {
+    const raw = yaml.load(mediaRaw);
+    const result = MediaConfigSchema.safeParse(raw);
+    if (!result.success) {
+      throw new Error(`Media configuration error:\n${formatZodErrors(result.error)}`);
+    }
+    mediaCache = normalizeMediaConfig(result.data);
+    return mediaCache;
+  } catch (error) {
+    console.error("Failed to parse and validate media-config.yaml:", error);
+    throw error;
   }
-
-  return normalizeMediaConfig(result.data);
 }
 
 export async function getMediaConfig(): Promise<MediaConfig> {
-  if (mediaCache) return mediaCache;
-  mediaCache = await loadAndValidateMedia();
-  return mediaCache;
+  return loadAndValidateMedia();
 }

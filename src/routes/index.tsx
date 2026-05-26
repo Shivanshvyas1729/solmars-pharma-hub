@@ -1,22 +1,25 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { DynamicPage } from "@/components/dynamic/DynamicPage";
-import { loadPage, buildHead } from "@/lib/content/loader";
-import { resolveAsset } from "@/lib/content/assets";
-
-const page = loadPage("home");
-const preloadHref = resolveAsset(page.meta?.preloadImage);
+import { getHomePageData } from "@/data/pages";
 
 export const Route = createFileRoute("/")({
-  head: () => {
-    const h = buildHead("home");
-    if (preloadHref) {
-      h.links.push({ rel: "preload", as: "image", href: preloadHref, fetchpriority: "high" });
-    }
-    return h;
+  loader: async () => {
+    return await getHomePageData();
   },
+  head: ({ loaderData }) => ({
+    meta: [
+      { title: loaderData?.meta?.title || "Solmars Pharma — High-Quality Pharmaceuticals" },
+      { name: "description", content: loaderData?.meta?.description || "" },
+      { property: "og:title", content: loaderData?.meta?.ogTitle || "" },
+      { property: "og:description", content: loaderData?.meta?.ogDescription || "" },
+      { property: "og:url", content: "/" },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+  }),
   component: Home,
 });
 
 function Home() {
+  const page = Route.useLoaderData();
   return <DynamicPage sections={page.sections} />;
 }

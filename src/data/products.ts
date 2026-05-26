@@ -1,4 +1,5 @@
-import { getCmsData } from "@/api/cms";
+import yaml from "js-yaml";
+import productsRaw from "@/content/products.yaml?raw";
 import { ProductsConfigSchema, ProductsConfig } from "./schemas";
 import { formatZodErrors } from "@/lib/zod-error";
 import { mapProduct, Product, ProductCategory } from "./mappers";
@@ -16,24 +17,25 @@ export const productCategories: ProductCategory[] = [
 
 let productsCache: ProductsConfig | null = null;
 
-async function loadAndValidateProducts(): Promise<ProductsConfig> {
-  const raw = await getCmsData({ data: "products.yaml" });
-  
-  let dataToParse = raw;
-  if (dataToParse.version === 1) {
-    // Migrate V1 to V2 if needed in the future
-  }
+function loadAndValidateProducts(): ProductsConfig {
+  if (productsCache) return productsCache;
 
-  const result = ProductsConfigSchema.safeParse(dataToParse);
-  if (!result.success) {
-    throw new Error(`Products configuration error:\n${formatZodErrors(result.error)}`);
+  try {
+    const raw = yaml.load(productsRaw);
+    const result = ProductsConfigSchema.safeParse(raw);
+    if (!result.success) {
+      throw new Error(`Products configuration error:\n${formatZodErrors(result.error)}`);
+    }
+    productsCache = result.data;
+    return productsCache;
+  } catch (error) {
+    console.error("Failed to parse and validate products.yaml:", error);
+    throw error;
   }
-
-  return result.data;
 }
 
 export async function getProductsConfig(): Promise<ProductsConfig> {
-  return await loadAndValidateProducts();
+  return loadAndValidateProducts();
 }
 
 export async function getProducts(): Promise<Product[]> {
@@ -62,4 +64,3 @@ export async function getRelatedProducts(slug: string, limit = 3): Promise<Produ
     .filter((p) => p.slug !== slug && p.category === current.category)
     .slice(0, limit);
 }
-

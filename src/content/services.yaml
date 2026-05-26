@@ -22,6 +22,18 @@ sections:
       - { icon: "package-check", title: "Medical Supply Chain", description: "Optimized inventory, packaging and last-mile coordination for healthcare networks." }
       - { icon: "building", title: "B2B Pharma Solutions", description: "Tailored programs for institutions, government tenders and bulk supply needs." }
 
+  - type: split
+    eyebrow: "Our Capabilities"
+    title: "World-class third-party manufacturing"
+    description: "We offer end-to-end contract manufacturing services under strict WHO-GMP compliance. From sourcing high-grade active pharmaceutical ingredients to state-of-the-art packaging, we ensure absolute consistency and safety."
+    image: "services-split"
+    imageAlt: "Pharmaceutical manufacturing laboratory"
+    imagePosition: "left"
+    bullets:
+      - "Full-scale custom manufacturing capabilities"
+      - "Strict compliance with international pharmacopoeias"
+      - "Tailored packaging designs and blister formats"
+
   - type: ctaCard
     title: "Explore a partnership with Solmars Pharma"
     description: "Share your requirements and our business team will respond with a structured proposal."

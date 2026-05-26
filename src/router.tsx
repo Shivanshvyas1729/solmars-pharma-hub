@@ -1,12 +1,14 @@
 import { QueryClient } from "@tanstack/react-query";
 import { createRouter } from "@tanstack/react-router";
-import { createBrowserHistory, createHashHistory } from "@tanstack/history";
+import { createMemoryHistory, createBrowserHistory, createHashHistory } from "@tanstack/history";
 import { routeTree } from "./routeTree.gen";
 
 export const getRouter = () => {
   const queryClient = new QueryClient();
   const isGitHubPages = import.meta.env.VITE_GITHUB_PAGES === "true";
-  const history = isGitHubPages ? createHashHistory() : createBrowserHistory();
+  const history = typeof window !== "undefined"
+    ? (isGitHubPages ? createHashHistory() : createBrowserHistory())
+    : createMemoryHistory();
 
   const router = createRouter({
     routeTree,

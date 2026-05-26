@@ -1,0 +1,10 @@
+{
+  "functions": {
+    "dist/server/*.js": {
+      "includeFiles": "data/control/**"
+    },
+    "**/*.js": {
+      "includeFiles": "data/control/**"
+    }
+  }
+}

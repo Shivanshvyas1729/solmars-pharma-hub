@@ -357,9 +357,20 @@ function ProductGallery({ product }: { product: Product }) {
               active === i ? "border-primary shadow-card" : "border-border hover:border-primary/40",
             ].join(" ")}
           >
-            <div className="grid h-full w-full place-items-center text-primary/70">
-              <Pill className="h-6 w-6" />
-            </div>
+            {product.image ? (
+              <img
+                src={product.image}
+                alt={labels[i]}
+                className={[
+                  "object-cover w-full h-full transition duration-300",
+                  active === i ? "opacity-100 scale-105" : "opacity-65 hover:opacity-85",
+                ].join(" ")}
+              />
+            ) : (
+              <div className="grid h-full w-full place-items-center text-primary/70">
+                <Pill className="h-6 w-6" />
+              </div>
+            )}
           </button>
         ))}
       </div>

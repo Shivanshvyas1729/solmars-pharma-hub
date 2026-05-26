@@ -32,7 +32,7 @@ categories:
       - slug: tesmol-mr              # URL ID — must be unique, no spaces (use hyphens)
         name: Tesmol MR Tablets      # Full product name
         shortName: Tesmol MR         # Short name for cards and labels
-        image: ""                    # Product image URL or leave "" for placeholder
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzM_tUjoIeJAsiVwNdNk9HksziKyAaTuyh7Q&s"                    # Product image URL or leave "" for placeholder
         description: A combination tablet indicated for acute musculoskeletal pain and inflammation associated with muscle spasm.
         # --- Optional Detail Page Fields ---
         composition: ""              # e.g. "Aceclofenac 100mg + Paracetamol 325mg"

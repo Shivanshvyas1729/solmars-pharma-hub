@@ -1,150 +1,86 @@
 # Solmars Pharma Hub 🏥
 
-A modern, content-driven pharmaceutical website built for **Solmars Pharma** — a trusted pharmaceutical company based in Ahmedabad, Gujarat. The site is powered by a lightweight YAML-based CMS, making all content fully editable without touching any code.
+A modern, highly optimized, dynamic pharmaceutical website built for **Solmars Pharma** — a trusted pharmaceutical company based in Ahmedabad, Gujarat. 
 
----
-
-## 🌐 Live Features
-
-- **Dynamic product catalog** with category filters and search
-- **Individual product detail pages** with tabbed sections (Overview, Composition, Usage, Safety)
-- **Full CMS** — every page, product and media asset is controlled via YAML files
-- **Logo and media management** via `media-config.yaml`
-- **SEO-optimized** with meta tags, structured data and sitemap
+This website utilizes a **Static YAML Content System** where the layout, page copywriting, and product catalog are loaded directly from YAML configuration files. This results in incredibly fast rendering times, clean code structure, and zero database dependencies!
 
 ---
 
 ## 🗂️ Project Structure
 
+All content configurations are stored within the `src/content/` directory, allowing simple and clear management of text, metadata, and lists:
+
 ```
 solmars-pharma-hub/
-├── data/
-│   └── control/              # ← All CMS content lives here (edit these!)
-│       ├── media-config.yaml #   Logo, hero image, videos, gallery
-│       ├── pages.yaml        #   All page content (hero, sections, text)
-│       ├── products.yaml     #   Product catalog (name, description, details)
-│       └── settings.yaml     #   Site name, SEO, contact info, navigation
-│
 ├── src/
-│   ├── routes/               # Page routes (one file per page)
-│   │   ├── index.tsx         #   Home page
-│   │   ├── products.index.tsx#   Products listing/catalog
-│   │   ├── products.$slug.tsx#   Individual product detail page
-│   │   ├── about.tsx
-│   │   ├── quality.tsx
-│   │   ├── services.tsx
-│   │   ├── careers.tsx
-│   │   ├── downloads.tsx
-│   │   └── contact.tsx
+│   ├── routes/               # File-based routing (TanStack Router)
+│   │   ├── index.tsx         #   Home Page
+│   │   ├── about.tsx         #   About Page
+│   │   ├── quality.tsx       #   Quality Page
+│   │   ├── services.tsx      #   Services Page
+│   │   ├── careers.tsx       #   Careers Page
+│   │   ├── downloads.tsx     #   Downloads Page
+│   │   ├── contact.tsx       #   Contact Page
+│   │   ├── products.index.tsx#   Catalog Listing Page
+│   │   └── products.$slug.tsx#   Product Detail Page
 │   │
-│   ├── components/           # Reusable UI components
-│   │   ├── SiteHeader.tsx    #   Navigation header with logo
-│   │   ├── SiteFooter.tsx    #   Footer
-│   │   ├── ProductCard.tsx   #   Product card on the catalog page
-│   │   └── PageHero.tsx      #   Hero banner used on all pages
+│   ├── content/              # ← All Content & Catalog Files
+│   │   ├── home.yaml         #   Homepage sections and metadata
+│   │   ├── about.yaml        #   About page story, mission, and pillars
+│   │   ├── services.yaml     #   Services listings and marketing cards
+│   │   ├── quality.yaml      #   Manufacturing commitments & certifications
+│   │   ├── careers.yaml      #   Culture descriptions & job section settings
+│   │   ├── contact.yaml      #   Corporate address, email, and phone info
+│   │   ├── downloads.yaml    #   Brochures, catalog sheets, and doc grids
+│   │   ├── products.yaml     #   Full products portfolio & molecular composition
+│   │   └── media-config.yaml #   Nav brand logo, hero image, and social links
 │   │
-│   ├── data/                 # Data loaders — read and validate YAML files
-│   │   ├── products.ts       #   Loads products.yaml
-│   │   ├── pages.ts          #   Loads pages.yaml
-│   │   ├── media.ts          #   Loads media-config.yaml
-│   │   └── schemas.ts        #   Zod validation schemas for all YAML files
-│   │
-│   ├── api/                  # API helpers
-│   │   └── cms.ts            #   Core file reader for YAML data
-│   │
-│   └── styles.css            # Global CSS (Tailwind CSS v4)
-│
-├── public/                   # Static assets (images, icons)
-├── package.json
-└── README.md
+│   ├── data/                 # Data mappers, schemas & loader entries
+│   ├── components/           # Modular React components & Layouts
+│   ├── styles.css            # Styling (Tailwind CSS v4)
+│   └── start.ts              # TanStack Start server handler
 ```
 
 ---
 
-## ✏️ How to Edit Content (No Code Required)
+## ⚙️ Content & Catalog Files Reference
 
-All website content is controlled through the YAML files in `data/control/`. Just edit the values and save — the website updates automatically (in development) or on the next build.
+Editing your site content is simple. Just modify the appropriate YAML file inside `src/content/`:
 
-### 📦 Add / Edit Products → `data/control/products.yaml`
-
-```yaml
-categories:
-  - categoryName: Pain Management     # Group name shown on the website
-    products:
-      - slug: my-product              # URL-friendly ID (no spaces, use hyphens)
-        name: My Product Tablets      # Full product name
-        shortName: My Product         # Short name shown on cards
-        image: ""                     # Leave empty for placeholder, or add URL/path
-        description: Brief description of the product.
-
-        # Optional detailed fields (shown on the product detail page):
-        composition: "Active ingredient 500mg"
-        dosageForm: Tablet
-        packaging: "10 tablets per strip"
-        segment: Pain Management
-        therapeuticUse: "Used for the treatment of..."
-        benefits:
-          - Fast-acting formula
-          - Clinically proven
-        usage: "Take one tablet twice daily after meals."
-        storage: "Store below 25°C in a dry place."
-        safety: "Not recommended for children under 12."
-```
-
-**To add a new category**, copy the `- categoryName:` block and add it under `categories:`.
-
----
-
-### 🖼️ Change Logo or Hero Image → `data/control/media-config.yaml`
-
-```yaml
-logo: "https://your-image-url.com/logo.jpg"    # Site logo (shown in header)
-hero_image: "https://your-image-url.com/hero.jpg"  # Home page hero image
-```
-
----
-
-### 📄 Edit Page Text → `data/control/pages.yaml`
-
-Every page's text — headings, descriptions, section content — is in `pages.yaml`. Find the page you want to edit and change the text values.
-
----
-
-### ⚙️ Change Site Settings → `data/control/settings.yaml`
-
-```yaml
-siteName: "Solmars Pharma Hub"
-contact:
-  email: "info@solmarspharma.com"
-  phone: "+91 98765 43210"
-  address: "SG Highway, Ahmedabad, Gujarat"
-```
+| File Path | What it controls |
+|---|---|
+| `src/content/products.yaml` | Categorized formulations, dosages, composition, usage, and safety |
+| `src/content/media-config.yaml` | Brand logo, hero banner background artwork, gallery pictures, and social media handles |
+| `src/content/home.yaml` | Homepage copywriting, hero text, and section configurations |
+| `src/content/about.yaml` | Corporate history, values, and organizational pillars |
+| `src/content/services.yaml` | Specialized B2B and distribution service cards |
+| `src/content/quality.yaml` | Quality assurance protocols, GMP compliance, and certifications |
+| `src/content/careers.yaml` | Core culture, values, and application instructions |
+| `src/content/contact.yaml` | Contact addresses, departments, email IDs, and phone numbers |
+| `src/content/downloads.yaml` | Corporate brochures, dossiers, and product brochures lists |
 
 ---
 
 ## 🚀 Getting Started (Development)
 
 ### Prerequisites
-- [Node.js](https://nodejs.org/) v18 or higher
-- npm (comes with Node.js)
+* [Node.js](https://nodejs.org/) v18 or higher
+* npm (preinstalled with Node)
 
-### Install & Run
+### Installation & Run
 
 ```bash
-# 1. Install dependencies
+# 1. Install local dependencies
 npm install
 
-# 2. Start the development server
+# 2. Start the hot-reloading development server
 npm run dev
-```
 
-The site will be available at **http://localhost:8080** (or the port shown in your terminal).
-
-### Build for Production
-
-```bash
+# 3. Build & compile check for production
 npm run build
 ```
+
+Local development server will spin up at **http://localhost:5173** (or next available port).
 
 ---
 
@@ -152,45 +88,13 @@ npm run build
 
 | Technology | Purpose |
 |---|---|
-| [React](https://react.dev/) | UI framework |
-| [TanStack Start](https://tanstack.com/start) | Full-stack React framework (SSR) |
-| [TanStack Router](https://tanstack.com/router) | File-based routing |
-| [Tailwind CSS v4](https://tailwindcss.com/) | Styling |
-| [Zod](https://zod.dev/) | YAML schema validation |
-| [Lucide React](https://lucide.dev/) | Icons |
-| [js-yaml](https://github.com/nodeca/js-yaml) | YAML parsing |
+| [React](https://react.dev/) | Declarative UI framework |
+| [TanStack Start](https://tanstack.com/start) | SSR Full-stack framework |
+| [TanStack Router](https://tanstack.com/router) | Type-safe file-based router |
+| [Tailwind CSS v4](https://tailwindcss.com/) | Premium utility styling |
+| [js-yaml](https://github.com/nodeca/js-yaml) | High-performance YAML loader & parser |
+| [Zod](https://zod.dev/) | Data schema validation |
 
 ---
-
-## 📋 YAML Files Quick Reference
-
-| File | What it controls |
-|---|---|
-| `media-config.yaml` | Logo, hero image, videos, banners, gallery, social links |
-| `products.yaml` | All products — names, descriptions, composition, usage, safety |
-| `pages.yaml` | All page content — headings, subheadings, body text |
-| `settings.yaml` | Site name, SEO tags, contact details, navigation links |
-
----
-
-## 🔗 Key Routes
-
-| URL | Page |
-|---|---|
-| `/` | Home |
-| `/products` | Product catalog (filterable + searchable) |
-| `/products/{slug}` | Individual product detail page |
-| `/about` | About Solmars Pharma |
-| `/quality` | Quality & Research |
-| `/services` | Services |
-| `/careers` | Careers |
-| `/downloads` | Downloads & Literature |
-| `/contact` | Contact |
-
----
-
-## 📞 Support
-
-For questions about the codebase or content updates, contact the development team.
 
 > **Solmars Pharma** — *For Humanity*
